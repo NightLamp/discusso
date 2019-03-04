@@ -7,15 +7,15 @@ Must be a multi user web application.
 
 # Ideas
 
-Music/Movie Polls
-Ranking recipes
-Ranking the best fishing/surfing spots in Perth
-Find the best units at UWA.
+* Music/Movie Polls
+* Ranking recipes
+* Ranking the best fishing/surfing spots in Perth
+* Find the best units at UWA.
 
-People rater (if you want to go really bad link it to fb or other social media)
-Best uni clubs
-Best laptops/phones/devices
-A betting website
+* People rater (if you want to go really bad link it to fb or other social media)
+* Best uni clubs
+* Best laptops/phones/devices
+* A betting website
 
-Best parking spots for uni
+* Best parking spots for uni
 
