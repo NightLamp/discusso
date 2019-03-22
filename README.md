@@ -66,7 +66,8 @@ This page will provide users with contact details of the administrator, and will
 breaking website guidelines.
 
 Topic:
-The topic page will be detailed 
-
+The topic page will be a detailed version of a users base argument. Here the score of the argument will be shown, as well as statistic measures
+for the argument. This page will also show reasoning arguments, their votes, and debuttle arguments to each reasoning argument, which
+also shows their vote.
   
 
