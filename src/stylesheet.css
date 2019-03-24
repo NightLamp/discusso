@@ -1,1 +1,33 @@
-/*empty because i dont remember css :(*/
+
+
+h1 {
+
+}
+
+
+
+
+/*-----Contact Us CSS----------- */
+.mainArea {
+	border-left-style: solid;
+	border-right-style: solid;
+	border-width: 1px;
+	border-color: gray;
+}
+
+.mainArea h1 {
+	text-align: center;
+}
+
+.mainArea p {
+	text-align: center;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+/*--------------------------------*/
