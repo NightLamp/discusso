@@ -1,27 +1,21 @@
 
-
-h1 {
-
-}
-
-
-
-
-/*-----Contact Us CSS----------- */
+/*Body area of all pages------------*/
 .mainArea {
+	padding-top: 120px; 
 	border-left-style: solid;
 	border-right-style: solid;
 	border-width: 1px;
 	border-color: gray;
+	height: 100%;
 }
 
-.mainArea h1 {
+.mainArea h1,h2 {
 	text-align: center;
 }
 
-.mainArea p {
-	text-align: center;
-}
+
+
+
 
 input[type=text] {
   width: 100%;
@@ -30,4 +24,20 @@ input[type=text] {
   box-sizing: border-box;
 }
 
+.rightMain {
+	border-left-style:solid;
+	border-width: 0.5px;
+	border-color: gray;
+}
+
 /*--------------------------------*/
+/*Contact us page-----------------*/
+#contactp {
+	text-align: center;
+}
+/*--------------------------------*/
+/*Tutorial Page-------------------*/
+#tutorialp{
+	padding:20px;
+	text-align: center;
+}
