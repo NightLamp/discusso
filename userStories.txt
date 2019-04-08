@@ -1,3 +1,18 @@
 User Stories:
 
-do we want this?
+
+USERS:
+* I want to be able to change my account details 
+* I want to be able to post an argument quickly and easily
+* I want to be able to share my argument on other social media
+* I want to see my best scores on arguments
+* I want to be able to be anonymous (?)
+
+ADMIN:
+* I want easy access to reported posts so i can check them easily
+* I want to ban repeat offenders
+* I want to be able to remove other admin if i have higher "rank" over them
+
+VIEWER:
+* I want a nice dislay of the argument vote numbers over time
+* I want to be able to report unacceptable behaviour 
