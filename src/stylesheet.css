@@ -41,3 +41,49 @@ input[type=text] {
 	padding:20px;
 	text-align: center;
 }
+/*--------------------------------*/
+/*Home Page-----------------------*/
+.sampleTopic {
+	margin: 20px;
+	text-align: center;
+	border: solid gray 1px;
+	}
+
+.sampleTopic h1 {
+	padding-bottom: 20px;
+	padding-left: 5px;
+	padding-right:5px;
+}
+/*--------------------------------*/
+/*Topic Page-----------------------*/
+.topicPage {
+
+	text-align: center;
+}
+
+.comment {
+	padding-top:40px;
+	padding-bottom: 20px;
+	padding-left: 5px;
+	padding-right:5px;
+	border-top: solid gray 1px;
+}
+
+.comment h4 {
+	text-align: center;
+}
+
+#question {
+	padding: 5px;
+	margin-bottom: 40px;
+	margin-top: 10px;
+}
+.commentReply {
+	padding-top:5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right:5px;
+	border-top: solid gray 1px;
+	font-size: xx-small;
+	border-bottom: solid gray 1px;
+}
