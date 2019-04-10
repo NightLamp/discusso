@@ -1,7 +1,7 @@
 
 /*Body area of all pages------------*/
 .mainArea {
-	padding-top: 120px; 
+	padding-top: 120px;
 	border-left-style: solid;
 	border-right-style: solid;
 	border-width: 1px;
@@ -55,7 +55,7 @@ input[type=text] {
 	padding-right:5px;
 }
 /*--------------------------------*/
-/*Topic Page-----------------------*/
+/*Topic Page----------------------*/
 .topicPage {
 
 	text-align: center;
@@ -86,4 +86,18 @@ input[type=text] {
 	border-top: solid gray 1px;
 	font-size: xx-small;
 	border-bottom: solid gray 1px;
+}
+
+/*--------------------------------*/
+/*Profile Page--------------------*/
+#imgBox {
+	background-color: gray;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+}
+
+#imgBox a {
+	text-decoration: none;
+	color: black;
 }
