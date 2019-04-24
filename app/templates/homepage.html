@@ -1,0 +1,41 @@
+{% extends "topbar.html" %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="leftSide col-md-2">
+
+	</div>
+
+	<div class="mainArea col-md-8">
+
+		<h1> DISCUSSIONS </h1>
+
+		{%for post in posts %}
+		<div class="sampleTopic">
+			<h1> {{ post.title }} </h1>
+
+			<div class="container-fluid">
+				<div class="col-md-4">
+					<p>UPVOTES </p>
+				</div>
+				<div class="col-md-4">
+					<p>7: DOWNVOTES </p>
+				</div>
+				<div class="col-md-4">
+					<p>66% AGREE </p>
+				</div>
+			</div>
+
+			<p><a href="../topicPage/topicpage.html"> VIEW COMMENTS AND REPLIES </a> </p>
+		</div>
+		{% endfor %}
+
+	</div>
+
+	<div class="rightSide col-md-2">
+
+	</div>
+</div>
+{% endblock %}
+
+{% extends "footer.html" %}
