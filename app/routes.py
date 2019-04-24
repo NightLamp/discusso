@@ -13,7 +13,6 @@ from app.forms import RegistrationForm
 
 @app.route('/')
 @app.route('/homepage')
-@login_required
 def homepage():
 
     posts = [
@@ -27,6 +26,30 @@ def homepage():
         }
     ]
     return render_template('homepage.html', title='Home', posts=posts)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('homepage'))
+
+@app.route('/tutorial')
+def tutorial():
+    return render_template('tutorialpage.html', title='Tutorial')
+
+@app.route('/topicpage')
+def topic():
+     return render_template('topicpage.html', title='Topic')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html', title='Profile')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html', title='Contact')
+
+
+
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -45,37 +68,18 @@ def signin():
         return redirect(next_page)
     return render_template('signin.html', title='Sign In', form=form)
 
-@app.route('/signin', methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('Congratulations, you are now a registered user!')
-        return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
 
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect(url_for('homepage'))
 
-@app.route('/tutorialpage')
-def tutorial():
-    return redirect(url_for('tutorialpage'))
-
-@app.route('/topicpage')
-def topic():
-     return redirect(url_for('topicpage'))
-
-@app.route('/profile')
-def profile():
-    return redirect(url_for('profile'))
-
-@app.route('/contact')
-def contact():
-    return redirect(url_for('contact'))
+#@app.route('/signin', methods=['GET', 'POST'])
+#def signup():
+ #   if current_user.is_authenticated:
+  #      return redirect(url_for('index'))
+   # form = RegistrationForm()
+    #if form.validate_on_submit():
+     #   user = User(username=form.username.data, email=form.email.data)
+      #  user.set_password(form.password.data)
+       # db.session.add(user)
+        #db.session.commit()
+        #flash('Congratulations, you are now a registered user!')
+        #return redirect(url_for('signin'))
+    #return render_template('signin.html', title='Sign', form=form)

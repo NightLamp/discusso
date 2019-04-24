@@ -9,8 +9,8 @@
         <title>discusso</title>
         {% endif %}
 
-        <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-        <script src="../ourScripts.js"></script>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheet.css') }}">
+        <script type=text/javascript src="{{url_for('static', filename='ourScripts.js') }}"></script>
       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -23,23 +23,19 @@
 			    <div class="row"><p>discusso</p></div>
 			    <div class="row">
 				    	<ul class="nav navbar-nav">
-					    	<li class="active"><a href="../homePage/homepage.html">Home</a></li>
-						    <li><a href="../tutorialPage/tutorialpage.html">Tutorial</a></li>
-                            <li><a href="../contactPage/contact.html">Contact</a></li>
-                            
-                            {% if user is signed in%}
-                            
-                            {% elif user is admin   %}
-
-                            {% else %}
-                            <li><a href="../signInPage/signin.html">SignIn/SignUp</a></li>
-                            {% endif %}
+					    	<li><a href="{{ url_for('homepage') }}">Home</a></li>
+						    <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                            <li><a href="{{ url_for('signin') }}">SignIn/SignUp</a></li>
+                         
 					    </ul>
 			    </div>
 		    </div>
         </nav>
         
         {% block content %}{% endblock %}
+
+        <footer> this is a footer </footer>
     </body>
 
 </html>
