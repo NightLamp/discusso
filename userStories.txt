@@ -7,6 +7,11 @@ USERS:
 * I want to be able to share my argument on other social media
 * I want to see my best scores on arguments
 * I want to be able to be anonymous (?)
+* i want to be able to edit what i posted
+* I want to be able to see what an edited post/reply looked like before it was
+	edited
+* I want bad/gross/anti-social posts and replies to be removed or censored
+* Images?
 
 ADMIN:
 * I want easy access to reported posts so i can check them easily
