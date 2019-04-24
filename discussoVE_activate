@@ -13,8 +13,8 @@
 # $ flask run
 
 
-APP="appname.py"
-VE="argVE"
+APP="discusso.py"
+VE="discussoVE"
 
 ## activate the venv
 source ./$VE/bin/activate
