@@ -1,0 +1,49 @@
+{% extends "topbar.html" %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="leftSide col-md-2">
+
+	</div>
+
+	<div class="mainArea col-md-8">
+
+		<h1> CONTACT US</h1>
+
+		<p id='contactp'>To contact an administrator please refer to the links below. Alternatively,
+			use the in-page text box to send an email straight from the page. </p>
+
+		<div class="container-fluid">
+
+			<div class="col-md-6">
+
+				<h2> Get In Touch: </h2>
+				<ul>
+					<li> Phone: <i> 1234 123 123 </i> </li>
+					<li> Email: <i> sampleAddress@sample.com </i> </li>
+					<li> Mail: <i> 123 Placeholder Rd, Alaska </i> </li>
+				</ul>
+			</div>
+
+
+			<div class="col-md-6">
+				<h2> Email Us: </h2>
+				<form>
+					Subject (required): <br>
+					<input type="text" name="emailSubj"> <br>
+					Description (optional): <br>
+					<input type="text" name="emailDesc"> <br>
+					<input type="submit" value="Send Email">
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="rightSide col-md-2">
+
+	</div>
+</div>
+{% endblock %}
+
+{% extends "footer.html" %}
