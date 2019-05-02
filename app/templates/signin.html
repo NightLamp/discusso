@@ -2,16 +2,20 @@
 
 {% block content %}
 <div class="container-fluid">
-  <div class="leftSide col-md-2">
+  <div class="leftSide col-md-1">
 
   </div>
 
-  <div class="mainArea col-md-8">
+  <div class="mainArea col-md-10">
 
-    <div class="container-fluid">
-      <div class="leftMain col-md-6">
+    <div class="signin container-fluid">
+        <div class ="col-md-4"></div>
+        <div class ="col-md-4">
+        <div class = "special">
+          <h1>Sign In To Your Account </h1>
+        </div>
 
-        <h1>Sign In</h1>
+        <div class ="form">
         <form action="" method="post" novalidate>
           {{ form.hidden_tag() }}
           <p>
@@ -31,11 +35,19 @@
           <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
           <p>{{ form.submit() }}</p>
         </form>
+        </div>
+
+        <div class = "link">
+          <p> <a href="{{ url_for('signup') }}">Don't have an account yet? Folllow this link
+            to create one! </a> </p>
+        </div>
+      </div>
+      <div class ="col-md-4"></div>
+
       </div>
 
-      
-
-  <div class="rightSide col-md-2">
+    
+  <div class="rightSide col-md-1">
 
   </div>
 </div>

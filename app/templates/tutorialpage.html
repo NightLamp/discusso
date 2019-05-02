@@ -1,33 +1,65 @@
 {% extends "topbar.html" %}
 
 {% block content %}
-  <div class="container-fluid">
-  	<div class="leftSide col-md-2">
+<div class="container-fluid">
+	<div class="leftSide col-md-2">
 
-  	</div>
+	</div>
 
-  	<div class="mainArea col-md-8">
+	<div class="mainArea col-md-8">
 
-  		<h1> HOW THE WEBSITE WORKS</h1>
-  
-  		<p id='tutorialp'> Our website provides a platform for users to express their opinions on arguments and receive responses. 
-      Arguments implement an algorithm that calculates public opinion on the argument, based on factors such as up/down votes,
-      user responses and up/down votes on those. <br> <br> To understand how to use and operate our website, please follow the 
-    guide below to show your how to get started.</p>
+		<div class="special">
+			<h1> What is discusso?</h1>
+		</div>
 
-  		<h2> Step 1: </h2>
-      
-      <h2> Step 2: </h2>
+		<div class="blurb">
+			<p> Our website provides a platform for users to express their opinions on arguments and receive
+				responses.
+				Arguments implement an algorithm that calculates public opinion on the argument, based on factors such as
+				up/down votes,
+				user responses and up/down votes on those. <br> <br> To understand how to use and operate our website, please
+				follow the
+				guide below to show your how to get started.</p>
+		</div>
 
-      <h2> Step 3: </h2>
-      
-      <h2> Step 4: </h2>
+		<div class="special">
+			<h1> How Do I Use discusso?</h1>
+		</div>
 
+		<div class="instructions">
+			<h2> Step 1: </h2>
+			<p> Use the homepage to find the most recent discussions taking place, 
+				you can use this to navigate into each topic page to view comments, replies and scores.
+			%insert picture here%
+		</p>
 
-  	</div>
+			<h2> Step 2: </h2>
+			<p>To engage in discussion or cast your vote, you will need to create a user profile.
+				Use the registration button to create your own user account, which you can use to discuss
+				topics with other members. Your account will associate an overall score indicate the feedback
+				you receive on your posts. Having an account gives you access, edit and delete your posts at any time. <br>
+				%insert picture here%
+			</p>
 
-  	<div class="rightSide col-md-2">
+			<h2> Step 3: </h2>
+			<p>	Once you have filled out the registration form, you will be taken to your user profile. here
+					you will have the ability to customise your profile by adding descriptions, photos and more.
+					%insert picture here%</p>
 
-  	</div>
-  </div>
-	{% endblock %}
+			<h2> Step 4: </h2>
+			<p> if at any stage you are confused or need to contact us, naivgate to either this tutorial page
+				for a refresher on how to user the webpage, or head over to the contact page. The contact page provides you
+				with administrator contact details who would be happy to take your call or email. If you wish to email us anonymously,
+				an inbuilt email system is built into the website which will allow you to contact us directly and anonymously.
+				%insert picture here%<br>
+				<b>Have fun! </b>
+			</p>
+		</div>
+
+	</div>
+
+	<div class="rightSide col-md-2">
+
+	</div>
+</div>
+{% endblock %}

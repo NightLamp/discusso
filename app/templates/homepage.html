@@ -6,28 +6,41 @@
 
 	</div>
 
-	<div class="mainArea col-md-8">
-
-		<h1> DISCUSSIONS </h1>
+	<div class="homePage col-md-8">
+		<div class = "special">
+		<h1> Trending Topics Near You</h1>
+	</div>
 
 		{%for post in posts %}
 		<div class="sampleTopic">
-			<h1> {{ post.title }} </h1>
-
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<p>UPVOTES </p>
+			<div class ="heading">
+			<h2> {{ post.title }} This is a sample post title which could have varying length </h2>
+		</div>
+			<div class="innerTopic container-fluid">
+					<div class="col-md-3"></div>
+				<div class="col-md-2">
+					<p>Praises: %get data base entry% </p>
 				</div>
-				<div class="col-md-4">
-					<p>7: DOWNVOTES </p>
+				<div class="col-md-2">
+					<p>Curses: %get data base entry% </p>
 				</div>
-				<div class="col-md-4">
-					<p>66% AGREE </p>
+				<div class="col-md-2">
+					<p>Agree: %get data base entry% </p>
 				</div>
+				<div class="col-md-3"></div>
 			</div>
 
-			<p><a href="{{ url_for('topic') }}"> VIEW COMMENTS AND REPLIES </a> </p>
-		</div>
+			<div class= "links container-fluid">
+					<div class = "viewComment col-md-4"></div>
+					<div class = "viewComment col-md-2">
+							<p><a href="{{ url_for('topic') }}"> View Comments </a> </p>
+					</div>
+					<div class = "viewProfile col-md-3">
+							<p><a href="{{ url_for('profile') }}"> View %post creators name % Profile </a> </p>
+					</div>
+					<div class = "viewComment col-md-3"></div>
+			</div>
+</div>
 		{% endfor %}
 
 	</div>

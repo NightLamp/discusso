@@ -1,43 +1,62 @@
 <html>
-    <head>
 
-        <meta charset="UTF-8">
+<head>
 
-        {% if title %}
-        <title>{{ title }} - discusso</title>
-        {% else %}
-        <title>discusso</title>
-        {% endif %}
+    <meta charset="UTF-8">
 
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheet.css') }}">
-        <script type=text/javascript src="{{url_for('static', filename='ourScripts.js') }}"></script>
-      
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    </head>
-    <body>
+    {% if title %}
+    Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    itle }} - discusso</title>
+    {% else %}
+    <title>discusso</title>
+    {% endif %}
 
-        <nav class="navbar navbar-default navbar-fixed-top">
-		    <div class="container-fluid">
-			    <div class="row"><p>discusso</p></div>
-			    <div class="row">
-				    	<ul class="nav navbar-nav">
-					    	<li><a href="{{ url_for('homepage') }}">Home</a></li>
-						    <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
-                            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                            <li><a href="{{ url_for('signin') }}">SignIn</a></li>
-                            <li><a href="{{ url_for('signup') }}">SignUp</a></li>
-                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
-                         
-					    </ul>
-			    </div>
-		    </div>
-        </nav>
-        
-        {% block content %}{% endblock %}
 
-        <footer> this is a footer </footer>
-    </body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheet.css') }}">
+    <script type=text/javascript src="{{url_for('static', filename='ourScripts.js') }}"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navTitle col-md-3">
+                <div class="page-header">
+                    <h1>discusso</h1>
+                </div>
+            </div>
+
+            <div class="topbarRight col-md-9">
+                <div class="page-header">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                        <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="page-footer font-small blue pt-4">
+        <div class="container-fluid text-center">
+
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="http://http://teaching.csse.uwa.edu.au/units/CITS3403/"> Ben and Dean</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
 
 </html>

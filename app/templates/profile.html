@@ -3,28 +3,39 @@
 {% block content %}
   <div class="container-fluid">
 
-    <div class="leftSide col-md-2">
+    <div class="leftSide col-md-1">
     </div>
 
-    <div class="mainArea col-md-8">
+    <div class="mainArea col-md-10">
       <div class="container-fluid">
-
-        <div class="leftMain col-md-6">
-          <p>Picture and Info</p>
-          <br>
-          <div id="imgBox">
-            <a>Add Profile Pic</a>
-          </div>
-          <br>
+        <div class = "special">
+          <h1> %Users name%</h1>
         </div>
 
-        <div class="rightMain col-md-6">
-          <p>Scores and Data</p>
+        <div class="profileLeft col-md-6">
+            <h3>About Me</h3>
+            <br>
+          <div class = "imgBox">
+            <a>%if it is their accoutn% Add an image to your profile!</a>
+          </div>
+          
+          <p> I am blah blah blah</p>
+         
+        </div>
+
+        <div class="profileRight col-md-6">
+            <h3>Post Data</h3>
+            <p>Number of posts: %getdata%</p>
+            <br>
+            <p>Overall Score: %getdata%</p>
+            <br>
+            <p>Overall Percentage: %getdata%</p>
+            <br>
         </div>
       </div>
     </div>
 
-    <div class="leftSide col-md-2">
+    <div class="leftSide col-md-1">
     </div>
 
 

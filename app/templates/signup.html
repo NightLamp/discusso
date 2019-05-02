@@ -1,9 +1,12 @@
 {% extends "topbar.html" %}
 
 {% block content %}
-<div class="rightMain col-md-6">
-
-        <h1>Register</h1>
+<div class="signin container-fluid">
+    <div class ="col-md-4"></div>
+    <div class ="col-md-4">
+        <div class = "special">
+            <h1>Register an Account </h1>
+          </div>
         <form action="" method="post">
           {{ form.hidden_tag() }}
           <p>
@@ -36,8 +39,14 @@
           </p>
           <p>{{ form.submit() }}</p>
         </form>
-      </div>
 
+        <div class = "link">
+            <p> <a href="{{ url_for('signin') }}">Already have an account? Folllow this link
+              to sign in! </a> </p>
+          </div>
+      </div>
+      <div class ="col-md-4"></div>
+    </div>
     </div>
 
   </div>
