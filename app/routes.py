@@ -3,7 +3,7 @@ from app import app
 from app.forms import LoginForm
 from flask_login import current_user, login_user
 from flask_login import logout_user
-from app.models import User
+from app.models import User, Post, Reply
 from flask_login import login_required
 from flask import request
 from werkzeug.urls import url_parse
@@ -14,18 +14,7 @@ from app.forms import RegistrationForm
 @app.route('/')
 @app.route('/homepage')
 def homepage():
-
-    posts = [
-        {
-            'author': {'username': 'Example'},
-            'body': 'Example!'
-        },
-        {
-            'author': {'username': 'Example'},
-            'body': 'Example'
-        }
-    ]
-    return render_template('homepage.html', title='Home', posts=posts)
+    return render_template('homepage.html', title='Home', posts=Post.query.all())
 
 @app.route('/logout')
 def logout():
@@ -36,9 +25,11 @@ def logout():
 def tutorial():
     return render_template('tutorialpage.html', title='Tutorial')
 
-@app.route('/topicpage')
-def topic():
-     return render_template('topicpage.html', title='Topic')
+@app.route('/topicpage/<postid>')
+def topic(postid):
+    myReply = Post.query.get(postid).p_replies.all()
+    myPost = Post.query.get(postid)
+    return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply)
 
 @app.route('/profile')
 def profile():
