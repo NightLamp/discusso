@@ -38,7 +38,7 @@
                         <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                         <li><a href="{{ url_for('signin') }}">SignIn</a></li>
-                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                        {%if current_user.is_anonymous == <li><a href="{{ url_for('profile') }}">Profile</a></li>
 
                     </ul>
                 </div>
