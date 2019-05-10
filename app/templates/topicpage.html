@@ -23,6 +23,28 @@
 			</div>
 
 		</div>
+        {% if not current_user.is_anonymous %}
+            <div class="form">
+                <form action="" method="post">
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.text.label }}<br>
+                        {{ form.text(size=248) }}<br>
+                        {% for error in form.text.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                     <p>
+                        {{ form.stance.label }}<br>
+                        {{ form.stance() }}<br>
+                        {% for error in form.stance.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p> {{form.submit() }}</p>
+                </form>
+            </div>
+        {% endif %}
 
 		{% for reply in replies %}
 		<div class="comment">

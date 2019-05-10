@@ -48,8 +48,8 @@ class Reply(db.Model):
     post_id   = db.Column(db.Integer, db.ForeignKey('post.id'))
 #     reply_id  = db.Column(db.Integer, db.ForeignKey('reply.id'))
     text      = db.Column(db.String(248))
-    blesses   = db.Column(db.Integer)
-    curses    = db.Column(db.Integer)
+    blesses   = db.Column(db.Integer, default=0)
+    curses    = db.Column(db.Integer, default=0)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     stance    = db.Column(db.Boolean)
      
