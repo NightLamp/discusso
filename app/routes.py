@@ -31,9 +31,10 @@ def topic(postid):
     myPost = Post.query.get(postid)
     return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply)
 
-@app.route('/profile')
-def profile():
-    return render_template('profile.html', title='Profile')
+@app.route('/profile/<userid>')
+def profile(userid):
+    myUser = User.query.get(userid)
+    return render_template('profile.html', title='Profile', user = myUser)
 
 @app.route('/contact')
 def contact():

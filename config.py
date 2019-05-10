@@ -11,7 +11,7 @@ class ProductionConfig(Config):
      SECRET_KEY = os.environ.get('SECRET_KEY')
 
 class DevelopmentConfig(Config):
-    DEBUG=True
+    FLASK_DEBUG=1
 
 class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'tests/test.db')
