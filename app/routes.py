@@ -14,6 +14,7 @@ from app.forms import RegistrationForm
 @app.route('/')
 @app.route('/homepage')
 def homepage():
+    # add MakePostForm
     return render_template('homepage.html', title='Home', posts=Post.query.all())
 
 @app.route('/logout')
