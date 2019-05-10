@@ -31,3 +31,4 @@ class RegistrationForm(FlaskForm):
 class MakePostForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     desc = StringField('Description')
+    submit = SubmitField('Post It')

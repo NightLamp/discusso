@@ -33,8 +33,8 @@ class Post(db.Model):
     id        = db.Column(db.Integer, primary_key=True)
     title     = db.Column(db.String(64))
     desc      = db.Column(db.String(248))
-    blesses   = db.Column(db.Integer)
-    curses    = db.Column(db.Integer)
+    blesses   = db.Column(db.Integer, default=0)
+    curses    = db.Column(db.Integer, default=0)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id   = db.Column(db.Integer, db.ForeignKey('user.id'))
 

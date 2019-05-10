@@ -1,6 +1,7 @@
 veBen/*
 veAct
 *.pyc
+__pycache__/*
 app/__pycache__/*
 deanVE/*
 .vscode

@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, RegistrationForm, MakePostForm
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from app.models import User, Post, Reply
@@ -8,14 +8,18 @@ from flask_login import login_required
 from flask import request
 from werkzeug.urls import url_parse
 from app import db
-from app.forms import RegistrationForm
 
 
-@app.route('/')
-@app.route('/homepage')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/homepage', methods=['GET', 'POST'])
 def homepage():
-    # add MakePostForm
-    return render_template('homepage.html', title='Home', posts=Post.query.all())
+    form = MakePostForm()
+    if form.validate_on_submit():
+        post = Post(title=form.title.data, desc=form.desc.data, user_id=current_user.id)
+        db.session.add(post)
+        db.session.commit()
+        return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form)
+    return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form)
 
 @app.route('/logout')
 def logout():

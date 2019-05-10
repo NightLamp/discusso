@@ -15,10 +15,8 @@
 	</div>
 
     
-    <!--
-        add MakePostForm
-    -->
-    {% if true %}
+    {% if not current_user.is_anonymous %}
+    <div class='form'>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -30,13 +28,14 @@
         </p>
         <p>
             {{ form.desc.label }}<br>
-            {{ form.desc.label }}<br>
+            {{ form.desc(size=248) }}<br>
             {% for error in form.desc.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+    </div>
     {% endif %}
 
 		{%for post in posts %}
