@@ -20,7 +20,19 @@
 				<div class="col-md-6">
 					<p>Curses: {{post.curses}} </p>
 				</div>
+                
+                <form action="" method="post">
+                    {{ bcForm.hidden_tag() }}
+                    <p>
+                        {{ bcForm.choice() }}
+                    </p>
+                    <p>
+                        {{ bcForm.submit }}
+                    </p>
+                    
+                </form>
 			</div>
+
 
 		</div>
         {% if not current_user.is_anonymous %}

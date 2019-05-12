@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm
+from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, BlessCurseForm
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from app.models import User, Post, Reply
@@ -36,15 +36,28 @@ def tutorial():
 @app.route('/topicpage/<postid>', methods=['GET', 'POST'])
 def topic(postid):
     myPost = Post.query.get(postid)
-    form = ReplyForm()
-    if form.validate_on_submit():
-        reply = Reply(post_id=postid, text=form.text.data, stance=('True' == form.stance.data))
+    rForm = ReplyForm()
+    bcForm = BlessCurseForm()
+    if rForm.validate_on_submit():
+        reply = Reply(post_id=postid, text=rForm.text.data, stance=('True' == rForm.stance.data))
         db.session.add(reply)
         db.session.commit()
         myReply = Post.query.get(postid).p_replies.all()
-        return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=form)
+        return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, rForm=rForm, bcForm=bcForm)
+    if bcForm.validate_on_submit():
+        blessed = ('bless' == bcForm.choice.data)
+        #TODO: make form get teh post or reply object before getting here
+        thePost = myPost
+        #thePost = bcForm.thePost
+        if blessed == True:
+            thePost.blesses + 1 
+        else:
+            thePost.curses + 1
+        db.session.commit()
+        myReply = Post.query.get(postid).p_replies.all()
+        return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=rForm, bcForm=bcForm)
     myReply = Post.query.get(postid).p_replies.all()
-    return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=form)
+    return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=rForm, bcForm=bcForm)
 
 
 @app.route('/profile/<userid>')
