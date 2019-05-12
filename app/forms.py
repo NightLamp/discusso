@@ -38,12 +38,13 @@ class MakePostForm(FlaskForm):
 class ReplyForm(FlaskForm):
     text = StringField('reply', validators=[DataRequired()])
     stance = RadioField('stance', choices=[('True','for'),('False','against')])
-    submit = SubmitField('Post It')
+    rSubmit = SubmitField('Post It')
 
 class BlessCurseForm(FlaskForm):
     thePost = None
     choice = RadioField('your vote', choices=[('bless','bless'),('curse','curse')])
-    submit = SubmitField('vote')
+    bcSubmit = SubmitField('vote')
      
     def setThePost(thePost):
         this.thePost = thePost
+        return;

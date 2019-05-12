@@ -23,11 +23,12 @@
                 
                 <form action="" method="post">
                     {{ bcForm.hidden_tag() }}
+                    <!--{% bcForm.setThePost(post) %} TODO: find out how to do this-->
                     <p>
                         {{ bcForm.choice() }}
                     </p>
                     <p>
-                        {{ bcForm.submit }}
+                        {{ bcForm.bcSubmit() }}
                     </p>
                     
                 </form>
@@ -53,7 +54,7 @@
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </p>
-                    <p> {{form.submit() }}</p>
+                    <p> {{form.rSubmit() }}</p>
                 </form>
             </div>
         {% endif %}
