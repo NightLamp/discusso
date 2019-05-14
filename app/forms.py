@@ -46,3 +46,8 @@ class ReplyForm(FlaskForm):
 class updateBioForm(FlaskForm):
     newBio = StringField('updateBio')
     submit = SubmitField('Update')
+
+class emailForm(FlaskForm):
+    subject = StringField('Subject', validators=[DataRequired()])
+    desc = StringField('description (optional)')
+    submit = SubmitField('submit')

@@ -32,16 +32,27 @@
 			</div>
 			<div class="col-md-1"></div>
 
-			<div class="contactDetails col-md-5">
-				<h2> Email Us: </h2>
-				<form>
-					Subject (required): <br>
-					<input type="text" name="emailSubj"> <br>
-					Description (optional): <br>
-					<input type="text" name="emailDesc"> <br>
-					<input type="submit" value="Send Email">
-				</form>
-			</div>
+			<div class='form col-md-5'>
+					<h2> Email Us: </h2>
+					<form action="" method="post">
+							{{ form.hidden_tag() }}
+							<p>
+								{{ form.subject.label }}<br>
+								{{ form.subject(size=64) }}<br>
+								{% for error in form.subject.errors %}
+								<span style="color: red;">[{{ error }}]</span>
+								{% endfor %}
+							</p>
+							<p>
+								{{ form.desc.label }}<br>
+								{{ form.desc(size=248) }}<br>
+								{% for error in form.desc.errors %}
+								<span style="color: red;">[{{ error }}]</span>
+								{% endfor %}
+							</p>
+							<p>{{ form.submit() }}</p>
+					</form>
+				</div>
 			<div class="col-md-1"></div>
 
 		</div>
