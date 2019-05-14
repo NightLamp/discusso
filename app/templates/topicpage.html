@@ -11,6 +11,10 @@
 		<div id="question">
 			<div class = "special">
 			<h1> {{post.title}} </h1>
+
+			{% if current_user.admin == True %}
+			<p><a href="{{ url_for('delPost',postid = '') }}{{post.id}}">Remove Post</a></p>
+			{% endif %}
 		</div>
 
 			<div class="innerTopic container-fluid">
@@ -19,6 +23,11 @@
 				</div>
 				<div class="col-md-6">
 					<p>Curses: {{post.curses}} </p>
+				</div>
+
+				<div class="blurb">
+					<br>
+					<p>{{post.desc}}</p>
 				</div>
 			</div>
 

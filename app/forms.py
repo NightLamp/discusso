@@ -3,11 +3,13 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, Radio
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import User
 
+
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
+
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -27,7 +29,7 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
 
-    
+
 class MakePostForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     desc = StringField('Description')
@@ -36,5 +38,11 @@ class MakePostForm(FlaskForm):
 
 class ReplyForm(FlaskForm):
     text = StringField('reply', validators=[DataRequired()])
-    stance = RadioField('stance', choices=[('True','for'),('False','against')])
+    stance = RadioField('stance', choices=[
+                        ('True', 'for'), ('False', 'against')])
     submit = SubmitField('Post It')
+
+
+class updateBioForm(FlaskForm):
+    newBio = StringField('updateBio')
+    submit = SubmitField('Update')

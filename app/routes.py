@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm
+from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, updateBioForm
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from app.models import User, Post, Reply
@@ -15,7 +15,8 @@ from app import db
 def homepage():
     form = MakePostForm()
     if form.validate_on_submit():
-        post = Post(title=form.title.data, desc=form.desc.data, user_id=current_user.id)
+        post = Post(title=form.title.data, desc=form.desc.data,
+                    user_id=current_user.id)
         db.session.add(post)
         db.session.commit()
         return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form)
@@ -25,6 +26,14 @@ def homepage():
 @app.route('/logout')
 def logout():
     logout_user()
+    return redirect(url_for('homepage'))
+
+
+@app.route('/delPost/<postid>', methods=['GET', 'POST'])
+def delPost(postid):
+    myPost = Post.query.get(postid)
+    db.session.delete(myPost)
+    db.session.commit()
     return redirect(url_for('homepage'))
 
 
@@ -38,19 +47,31 @@ def topic(postid):
     myPost = Post.query.get(postid)
     form = ReplyForm()
     if form.validate_on_submit():
-        reply = Reply(post_id=postid, text=form.text.data, stance=('True' == form.stance.data))
+        reply = Reply(post_id=postid, text=form.text.data,
+                      stance=('True' == form.stance.data))
         db.session.add(reply)
         db.session.commit()
         myReply = Post.query.get(postid).p_replies.all()
-        return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=form)
+        return render_template('topicpage.html', title='Topic', post=myPost, replies=myReply, form=form)
     myReply = Post.query.get(postid).p_replies.all()
-    return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=form)
+    return render_template('topicpage.html', title='Topic', post=myPost, replies=myReply, form=form)
 
 
 @app.route('/profile/<userid>')
 def profile(userid):
     myUser = User.query.get(userid)
-    return render_template('profile.html', title='Profile', user = myUser)
+    return render_template('profile.html', title='Profile', user=myUser)
+
+
+@app.route('/updateBio/<userid>', methods=['GET', 'POST'])
+def updateBio(userid):
+    myUser = User.query.get(userid)
+    form = updateBioForm()
+    if form.validate_on_submit():
+        myUser.bio = form.newBio.data
+        db.session.commit()
+        return render_template('profile.html', title='Profile', user=myUser)
+    return render_template('changeBio.html', title='Change Bio', user=myUser, form=form)
 
 
 @app.route('/contact')
@@ -76,7 +97,6 @@ def signin():
     return render_template('signin.html', title='Sign In', form=form)
 
 
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:
@@ -85,7 +105,7 @@ def signup():
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
-        user.admin = False # user not admin by default
+        user.admin = False  # user not admin by default
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')

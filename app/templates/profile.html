@@ -1,43 +1,45 @@
 {% extends "topbar.html" %}
 
 {% block content %}
-  <div class="container-fluid">
+<div class="container-fluid">
 
-    <div class="leftSide col-md-1">
-    </div>
+  <div class="leftSide col-md-1">
+  </div>
 
-    <div class="mainArea col-md-10">
-      <div class="container-fluid">
-        <div class = "special">
-          <h1> {{user.username}}</h1>
-        </div>
+  <div class="mainArea col-md-10">
+    <div class="container-fluid">
+      <div class="special">
+        <h1> {{user.username}}</h1>
+      </div>
 
-        <div class="profileLeft col-md-6">
-            <h3>About Me</h3>
-            <br>
-          <div class = "imgBox">
-            <a>About Me</a>
-          </div>
-          
-          <p> {{user.bio}}</p>
-         
-        </div>
+      <div class="profileLeft col-md-3">
+        <h3>About Me</h3>
+        <br>
+        <p> {{user.bio}}</p>
+        {% if current_user.id == user.id %}
+        <p> <a href="{{ url_for('updateBio',userid = '') }}{{user.id}}"> Update Your Bio</a></p>
+        {% endif %}
 
-        <div class="profileRight col-md-6">
-            <h3>Post Data</h3>
-            <p>Number of posts: %getdata%</p>
-            <br>
-            <p>Overall Score: %getdata%</p>
-            <br>
-            <p>Overall Percentage: %getdata%</p>
-            <br>
-        </div>
+      </div>
+
+      <div class="profileRight col-md-9">
+        <h3>Recent Posts</h3>
+        {% for p in posts %}
+        {%if post.userid == user.id %}
+        <!--error here-->
+        <br>
+        <br>
+        <p><a href="{{ url_for('topic',postid = '') }}{{p.id}}"> View Post </a> </p>
+        {% endif %}
+        {% endfor %}
+
       </div>
     </div>
-
-    <div class="leftSide col-md-1">
-    </div>
-
-
   </div>
-  {% endblock %}
+
+  <div class="leftSide col-md-1">
+  </div>
+
+
+</div>
+{% endblock %}

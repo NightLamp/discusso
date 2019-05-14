@@ -4,20 +4,21 @@ from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
 
 class User(UserMixin, db.Model):
-    id            = db.Column(db.Integer, primary_key=True)
-    username      = db.Column(db.String(64), index=True, unique=True)
-    bio           = db.Column(db.String(248))
-    passwd_hash   = db.Column(db.String(128))
-    email         = db.Column(db.String(120), index=True, unique=True)
-    admin         = db.Column(db.Boolean)
-    
-    posts         = db.relationship('Post', backref='author', lazy='dynamic')
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), index=True, unique=True)
+    bio = db.Column(db.String(248))
+    passwd_hash = db.Column(db.String(128))
+    email = db.Column(db.String(120), index=True, unique=True)
+    admin = db.Column(db.Boolean)
+
+    posts = db.relationship('Post', backref='author', lazy='dynamic')
 
     def __repr__(self):
         return '<id {}, User {}>'.format(self.id, self.username)
@@ -30,34 +31,34 @@ class User(UserMixin, db.Model):
 
 
 class Post(db.Model):
-    id        = db.Column(db.Integer, primary_key=True)
-    title     = db.Column(db.String(64))
-    desc      = db.Column(db.String(248))
-    blesses   = db.Column(db.Integer, default=0)
-    curses    = db.Column(db.Integer, default=0)
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64))
+    desc = db.Column(db.String(248))
+    blesses = db.Column(db.Integer, default=0)
+    curses = db.Column(db.Integer, default=0)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id   = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    p_replies   = db.relationship('Reply', backref='ogPost', lazy='dynamic')
+    p_replies = db.relationship('Reply', backref='ogPost', lazy='dynamic')
 
     def __repr__(self):
-        return '<id {}, Post {}>'.format(self.id, self.title) 
+        return '<id {}, Post {}>'.format(self.id, self.title)
+
 
 class Reply(db.Model):
-    id        = db.Column(db.Integer, primary_key=True)
-    post_id   = db.Column(db.Integer, db.ForeignKey('post.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
 #     reply_id  = db.Column(db.Integer, db.ForeignKey('reply.id'))
-    text      = db.Column(db.String(248))
-    blesses   = db.Column(db.Integer, default=0)
-    curses    = db.Column(db.Integer, default=0)
+    text = db.Column(db.String(248))
+    blesses = db.Column(db.Integer, default=0)
+    curses = db.Column(db.Integer, default=0)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    stance    = db.Column(db.Boolean)
-     
+    stance = db.Column(db.Boolean)
+
     # r_replies   = db.relationship('Reply', backref='ogPost', lazy='dynamic')
- 		
+
     def __repr__(self):
         return '<id {}, Reply {}>'.format(self.id, self.text)
-
 
 
 # Old code from mega tutorial
@@ -87,5 +88,3 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 '''
-
-

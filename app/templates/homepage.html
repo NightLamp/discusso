@@ -10,41 +10,41 @@
 	</div>
 
 	<div class="homePage col-md-8">
-		<div class = "special">
-		<h1> Trending Topics Near You</h1>
-	</div>
+		<div class="special">
+			<h1> Trending Topics Near You</h1>
+		</div>
 
-    
-    {% if not current_user.is_anonymous %}
-    <div class='form'>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.title.label }}<br>
-            {{ form.title(size=64) }}<br>
-            {% for error in form.title.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.desc.label }}<br>
-            {{ form.desc(size=248) }}<br>
-            {% for error in form.desc.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    </div>
-    {% endif %}
+
+		{% if not current_user.is_anonymous %}
+		<div class='form'>
+			<form action="" method="post">
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.title.label }}<br>
+					{{ form.title(size=64) }}<br>
+					{% for error in form.title.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.desc.label }}<br>
+					{{ form.desc(size=248) }}<br>
+					{% for error in form.desc.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p>{{ form.submit() }}</p>
+			</form>
+		</div>
+		{% endif %}
 
 		{%for post in posts %}
 		<div class="sampleTopic">
-			<div class ="heading">
-			<h2> {{ post.title }} </h2>
-		</div>
+			<div class="heading">
+				<h2> {{ post.title }} </h2>
+			</div>
 			<div class="innerTopic container-fluid">
-					<div class="col-md-3"></div>
+				<div class="col-md-3"></div>
 				<div class="col-md-3">
 					<p>Blesses: {{post.blesses}} </p>
 				</div>
@@ -54,14 +54,14 @@
 				<div class="col-md-3"></div>
 			</div>
 
-			<div class= "links container-fluid">
-					<div class = "viewComment col-md-4"></div>
-					<div class = "viewComment col-md-4">
-							<p><a href="{{ url_for('topic',postid = '') }}{{post.id}}"> View Comments </a> </p>
-					</div>
-					<div class = "viewComment col-md-4"></div>
+			<div class="links container-fluid">
+				<div class="viewComment col-md-4"></div>
+				<div class="viewComment col-md-4">
+					<p><a href="{{ url_for('topic',postid = '') }}{{post.id}}"> View Comments </a> </p>
+				</div>
+				<div class="viewComment col-md-4"></div>
 			</div>
-</div>
+		</div>
 		{% endfor %}
 
 	</div>
