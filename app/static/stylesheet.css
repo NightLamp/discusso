@@ -1,4 +1,4 @@
-@media (min-width: 991px) {
+@media (min-width: 900px) {
 	/* CSS that should be displayed if width is equal to or less than 800px goes here */
 	body {
 		padding-top: 150px;
@@ -37,7 +37,8 @@
 /*Discussions Page ------------------------------------*/
 .sampleTopic {
 	padding: 30px;
-	text-align: center
+	text-align: center;
+	border: 10px;
 }
 
 .sampleTopic h3{
@@ -85,7 +86,7 @@
 }
 
 input[type=text]{
-	color: #979797;
+	background-color:  #F0F0F0;
     height: 28px;
 	padding-left: 10px;
 	width: 100%;
@@ -100,7 +101,7 @@ input[type=text]{
  }
 
  input[type=password]{
-	color: #979797;
+	background-color:  #F0F0F0;
     height: 28px;
 	padding-left: 10px;
 	width: 100%;
