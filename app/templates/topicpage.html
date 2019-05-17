@@ -42,6 +42,9 @@
 				<div class="col-lg-6">
 					<p>Curses: {{post.curses}} </p>
 				</div>
+				<br>
+				<br>
+				
 
 				<div class="blurb">
 					<br>
@@ -59,9 +62,8 @@
 
 				</form>
 			</div>
-
-
 		</div>
+
 		{% if not current_user.is_anonymous %}
 		<div class="form">
 			<form action="" method="post">
@@ -112,28 +114,12 @@
 					<p>Curses: {{reply.curses}} </p>
 				</div>
 			</div>
-			{% endfor %}
-			<!--
-				<div class="commentReply">
-
-					<h6> I Completely disagree with your statement and think you are a complete retard for reasons
-						A) B) and C). </h6>
-
-					<div class="container-fluid">
-						<div class="col-lg-4">
-							<p> AGAINST </p>
-						</div>
-						<div class="col-lg-4">
-							<p>5: UPVOTES </p>
-						</div>
-						<div class="col-lg-4">
-							<p>2: DOWNVOTES </p>
-						</div>
-					</div>
-				</div>
--->
-
 		</div>
+			<br>
+			<br>
+			<br>
+			{% endfor %}
+		
 
 
 		<div class="rightSide col-lg-2">

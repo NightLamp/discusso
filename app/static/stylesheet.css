@@ -37,11 +37,7 @@
 }
 
 /*Discussions Page ------------------------------------*/
-.sampleTopic {
-	padding: 30px;
-	text-align: center;
-	border: 10px;
-}
+
 
 .sampleTopic h3 {
 	padding: 20px;
@@ -128,5 +124,24 @@ input[type=password] {
 }
 
 .poststuff {
+	padding-bottom: 40px;
+}
+
+.sampleTopic {
+	padding: 30px;
+	text-align: center;
+	background-color: #F8F8F8;
+	border: 2px solid #F0F0F0;
+}
+
+.comment {
+	padding: 30px;
+	text-align: center;
+	background-color: #F8F8F8;
+	border: 2px solid #F0F0F0;
+}
+
+.form {
+	padding-top: 40px;
 	padding-bottom: 40px;
 }
