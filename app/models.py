@@ -41,11 +41,22 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     p_replies = db.relationship('Reply', backref='ogPost', lazy='dynamic')
+    user_votes = db.relationship('Post_BC', backref='post', lazy='dynamic')
 
     def __repr__(self):
         return '<id {}, Post {}>'.format(self.id, self.title)
 
 
+class Post_BC(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+    stance = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return '<id {}, Post_BC>'.format(self.id, self.title)
+
+    
 class Reply(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
