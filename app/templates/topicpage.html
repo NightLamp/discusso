@@ -5,24 +5,35 @@
 	<div class="leftSide col-lg-2">
 
 	</div>
-	
+
 
 	<div class="topicPage mainArea col-lg-8">
 
 		<div id="question">
-			<div class = "special">
-			<h1> {{post.title}} </h1>
+			<div class="special">
+				<h1> {{post.title}} </h1>
+				{% if current_user.admin == True or current_user.id == post.user_id %}
+				<p><a href="{{ url_for('delPost',postid = '') }}{{post.id}}">Remove Post</a></p>
+				{% endif %}
+			</div>
 			{% for u in user %}
 			{% if u.id == post.user_id %}
-			<h3><a href="{{ url_for('profile',userid = '') }}{{u.id}}">{{u.username}}</a></li> </h3>
+			<div class="poststuff container-fluid">
+
+				<div class="col-lg-6">
+					<h3> Posted By :</h3>
+					<h3><a href="{{ url_for('profile',userid = '') }}{{u.id}}">{{u.username}}</a></li>
+					</h3>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="imgBox">
+						<img src="{{ u.avatar(128) }}">
+					</div>
+				</div>
+			</div>
 			{%endif%}
 			{%endfor%}
-
-
-			{% if current_user.admin == True or current_user.id == post.user_id %}
-			<p><a href="{{ url_for('delPost',postid = '') }}{{post.id}}">Remove Post</a></p>
-			{% endif %}
-		</div>
 
 			<div class="innerTopic container-fluid">
 				<div class="col-lg-6">
@@ -36,58 +47,62 @@
 					<br>
 					<p>{{post.desc}}</p>
 				</div>
-                
-                <form action="" method="post">
-                    {{ bcForm.hidden_tag() }}
-                    <p>
-                        {{ bcForm.choice() }}
-                    </p>
-                    <p>
-                        {{ bcForm.bcSubmit() }}
-                    </p>
-                    
-                </form>
+
+				<form action="" method="post">
+					{{ bcForm.hidden_tag() }}
+					<p>
+						{{ bcForm.choice() }}
+					</p>
+					<p>
+						{{ bcForm.bcSubmit() }}
+					</p>
+
+				</form>
 			</div>
 
 
 		</div>
-        {% if not current_user.is_anonymous %}
-            <div class="form">
-                <form action="" method="post">
-                    {{ form.hidden_tag() }}
-                    <p>
-                        {{ form.text.label }}<br>
-                        {{ form.text(size=248) }}<br>
-                        {% for error in form.text.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                    </p>
-                     <p>
-                        {{ form.stance.label }}<br>
-                        {{ form.stance() }}<br>
-                        {% for error in form.stance.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                    </p>
-                    <p> {{form.rSubmit() }}</p>
-                </form>
-            </div>
-        {% endif %}
+		{% if not current_user.is_anonymous %}
+		<div class="form">
+			<form action="" method="post">
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.text.label }}<br>
+					{{ form.text(size=248) }}<br>
+					{% for error in form.text.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.stance.label }}<br>
+					{{ form.stance() }}<br>
+					{% for error in form.stance.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p> {{form.rSubmit() }}</p>
+			</form>
+		</div>
+		{% endif %}
 
 		{% for reply in replies %}
 		<div class="comment">
-			<div class = "header">
-					{% for u in user %}
-					{% if u.id == reply.user_id %}
-					<h3><a href="{{ url_for('profile',userid = '') }}{{u.id}}">{{u.username}}</a></li> </h3>
-					{%endif%}
-					{%endfor%}
-			<h4> {{reply.text}} </h4>
+			<div class="header">
+				{% for u in user %}
+				{% if u.id == reply.user_id %}
+				<h3><a href="{{ url_for('profile',userid = '') }}{{u.id}}">{{u.username}}</a></li>
+				</h3>
+				<div class="imgBox">
+					<img src="{{ u.avatar(36) }}">
+				</div>
+				{%endif%}
+				{%endfor%}
+				<h4> {{reply.text}} </h4>
 
-			{% if current_user.admin == True or current_user.id == reply.user_id %}
-			<p><a href="{{ url_for('delReply',replyid = '') }}{{reply.id}}">Remove Reply</a></p>
-			{% endif %}
-		</div>
+				{% if current_user.admin == True or current_user.id == reply.user_id %}
+				<p><a href="{{ url_for('delReply',replyid = '') }}{{reply.id}}">Remove Reply</a></p>
+				{% endif %}
+			</div>
 
 			<div class="innerTopic container-fluid">
 				<div class="col-lg-6">

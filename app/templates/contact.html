@@ -8,15 +8,15 @@
 
 	<div class="mainArea col-lg-8">
 
-		<div class= "special">
+		<div class="special">
 			<h1> Contact Us</h1>
 		</div>
 
-		<div class= "blurb">
-		<p>To contact an administrator please refer to the links below. Alternatively,
-			use the in-page text box to send an email straight from the page.
-		administrators are usually available between 9-5 on weekdays, and 8-2 on weekends.
-	Please allow for 3 working days for a response. </p>
+		<div class="blurb">
+			<p>To contact an administrator please refer to the links below. Alternatively,
+				use the in-page text box to send an email straight from the page.
+				administrators are usually available between 9-5 on weekdays, and 8-2 on weekends.
+				Please allow for 3 working days for a response. </p>
 		</div>
 
 		<div class="instructions container-fluid">
@@ -33,26 +33,26 @@
 			<div class="col-lg-1"></div>
 
 			<div class='form col-lg-5'>
-					<h2> Email Us: </h2>
-					<form action="" method="post">
-							{{ form.hidden_tag() }}
-							<p>
-								{{ form.subject.label }}<br>
-								{{ form.subject(size=64) }}<br>
-								{% for error in form.subject.errors %}
-								<span style="color: red;">[{{ error }}]</span>
-								{% endfor %}
-							</p>
-							<p>
-								{{ form.desc.label }}<br>
-								{{ form.desc(size=248) }}<br>
-								{% for error in form.desc.errors %}
-								<span style="color: red;">[{{ error }}]</span>
-								{% endfor %}
-							</p>
-							<p>{{ form.submit() }}</p>
-					</form>
-				</div>
+				<h2> Email Us: </h2>
+				<form action="" method="post">
+					{{ form.hidden_tag() }}
+					<p>
+						{{ form.subject.label }}<br>
+						{{ form.subject(size=64) }}<br>
+						{% for error in form.subject.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.desc.label }}<br>
+						{{ form.desc(size=248) }}<br>
+						{% for error in form.desc.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>{{ form.submit() }}</p>
+				</form>
+			</div>
 			<div class="col-lg-1"></div>
 
 		</div>
