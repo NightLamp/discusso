@@ -36,6 +36,20 @@ def delPost(postid):
     db.session.commit()
     return redirect(url_for('homepage'))
 
+@app.route('/delUser/<userid>', methods=['GET', 'POST'])
+def delUser(userid):
+    myUser = User.query.get(userid)
+    db.session.delete(myUser)
+    db.session.commit()
+    return redirect(url_for('homepage'))
+
+@app.route('/delReply/<replyid>', methods=['GET', 'POST'])
+def delReply(replyid):
+    myReply = Reply.query.get(replyid)
+    db.session.delete(myReply)
+    db.session.commit()
+    return redirect(url_for('homepage'))
+
 
 @app.route('/tutorial')
 def tutorial():

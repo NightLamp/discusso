@@ -12,7 +12,7 @@
 			<div class = "special">
 			<h1> {{post.title}} </h1>
 
-			{% if current_user.admin == True %}
+			{% if current_user.admin == True %}<!---or current_user.id == post.user.id %} -->
 			<p><a href="{{ url_for('delPost',postid = '') }}{{post.id}}">Remove Post</a></p>
 			{% endif %}
 		</div>
@@ -59,6 +59,10 @@
 		<div class="comment">
 			<div class = "header">
 			<h4> {{reply.text}} </h4>
+
+			{% if current_user.admin == True %} <!---or current_user.id == reply.user.id %} -->
+			<p><a href="{{ url_for('delReply',replyid = '') }}{{reply.id}}">Remove Reply</a></p>
+			{% endif %}
 		</div>
 
 			<div class="innerTopic container-fluid">
