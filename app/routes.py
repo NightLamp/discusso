@@ -58,25 +58,27 @@ def tutorial():
 
 @app.route('/topicpage/<postid>', methods=['GET', 'POST'])
 def topic(postid):
+    allUsers = User.query.all()
     myPost = Post.query.get(postid)
     form = ReplyForm()
     if form.validate_on_submit():
         reply = Reply(post_id=postid, text=form.text.data,
-                      stance=('True' == form.stance.data))
+                      stance=('True' == form.stance.data), user_id=current_user.id)
         db.session.add(reply)
         db.session.commit()
         myReply = Post.query.get(postid).p_replies.all()
-        return render_template('topicpage.html', title='Topic', post=myPost, replies=myReply, form=form)
+        return render_template('topicpage.html', title='Topic',user=allUsers, post=myPost, replies=myReply, form=form)
     myReply = Post.query.get(postid).p_replies.all()
-    return render_template('topicpage.html', title='Topic', post=myPost, replies=myReply, form=form)
+    return render_template('topicpage.html', title='Topic',user=allUsers, post=myPost, replies=myReply, form=form)
 
 
 @app.route('/profile/<userid>')
 def profile(userid):
+    allPost= Post.query.all()
     myUser = User.query.get(userid)
     if myUser == None:
         return redirect(url_for('homepage'))
-    return render_template('profile.html', title='Profile', user=myUser)
+    return render_template('profile.html', title='Profile', user=myUser, post=allPost)
 
 
 @app.route('/updateBio/<userid>', methods=['GET', 'POST'])

@@ -28,12 +28,11 @@
 
       <div class="profileRight col-md-9">
         <h3>Recent Posts</h3>
-        {% for p in posts %}
-        {%if post.userid == user.id %}
-        <!--error here-->
-        <br>
-        <br>
+        {% for p in post %}
+        {%if p.user_id == user.id %}
+        <h4> {{ p.title }}</h4>
         <p><a href="{{ url_for('topic',postid = '') }}{{p.id}}"> View Post </a> </p>
+        <br><br>
         {% endif %}
         {% endfor %}
 

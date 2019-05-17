@@ -19,6 +19,7 @@ class User(UserMixin, db.Model):
     admin = db.Column(db.Boolean)
 
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    replies = db.relationship('Reply', backref='author', lazy='dynamic')
 
     def __repr__(self):
         return '<id {}, User {}>'.format(self.id, self.username)
@@ -54,6 +55,7 @@ class Reply(db.Model):
     curses = db.Column(db.Integer, default=0)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     stance = db.Column(db.Boolean)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # r_replies   = db.relationship('Reply', backref='ogPost', lazy='dynamic')
 
