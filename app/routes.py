@@ -60,7 +60,6 @@ def tutorial():
 def topic(postid):
     allUsers = User.query.all()
     myPost = Post.query.get(postid)
-# NEW
 
     rForm = ReplyForm()
     bcForm = BlessCurseForm()
@@ -93,7 +92,9 @@ def topic(postid):
             else:
                 thePost.curses +=  1
                 thePost.blesses -=  1 
+            post_bc_query.stance = blessed
             db.session.commit()
+
         myReply = Post.query.get(postid).p_replies.all()
         return render_template('topicpage.html', title='Topic', post=myPost, 
                                replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
