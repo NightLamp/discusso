@@ -22,17 +22,17 @@
 
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navTitle col-md-3">
-                <div class="page-header">
+    <nav class="hidden-xs hidden-sm navbar navbar-default navbar-fixed-top">
+        <div class="top container-fluid">
+            <div class="hidden-xs hidden-sm navTitle col-lg-3"> 
+                <div class="nav-brand">
                     <h1>discusso</h1>
                 </div>
             </div>
 
-            <div class="topbarRight col-md-9">
+            <div class="hidden-xs hidden-sm topbarRight col-lg-9">
                 <div class="page-header">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ url_for('homepage') }}">Home</a></li>
                         <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
@@ -44,12 +44,57 @@
                         <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
                         {% endif %}
 
-
                     </ul>
                 </div>
             </div>
+
+            <div class="hidden-md hidden-lg topbarRight col-lg-12">
+                    <div class="page-header">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    
+                            {% if current_user.is_anonymous %}
+                            <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                            {% else %}
+                            <li><a href="{{ url_for('profile',userid = '') }}{{current_user.id}}">Profile</a></li>
+                            <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                            {% endif %}
+    
+                        </ul>
+                    </div>
+                </div>
         </div>
     </nav>
+
+    <nav class="hidden-md hidden-lg navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navTitle col-lg-12"> 
+                    <div class="nav-brand">
+                        <h1>discusso</h1>
+                    </div>
+                </div>
+    
+                <div class="topbarRight col-lg-12">
+                    <div class="page-header">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    
+                            {% if current_user.is_anonymous %}
+                            <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                            {% else %}
+                            <li><a href="{{ url_for('profile',userid = '') }}{{current_user.id}}">Profile</a></li>
+                            <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                            {% endif %}
+    
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
     {% block content %}{% endblock %}
 

@@ -1,6 +1,11 @@
-body {
-	padding-top: 100px;
-}
+@media (min-width: 991px) {
+	/* CSS that should be displayed if width is equal to or less than 800px goes here */
+	body {
+		padding-top: 150px;
+	}
+  }
+
+
 
 /*top bar and footer--------------------------*/
 .navbar-default {
@@ -11,7 +16,6 @@ body {
 }
 
 .nav {
-	float: right;
 	padding-right: 30%;
 }
 

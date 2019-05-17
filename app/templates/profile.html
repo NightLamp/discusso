@@ -3,10 +3,10 @@
 {% block content %}
 <div class="container-fluid">
 
-  <div class="leftSide col-md-1">
+  <div class="leftSide col-lg-1">
   </div>
 
-  <div class="mainArea col-md-10">
+  <div class="mainArea col-lg-10">
     <div class="container-fluid">
       <div class="special">
         <h1> {{user.username}}</h1>
@@ -16,7 +16,7 @@
 			{% endif %}
       </div>
 
-      <div class="profileLeft col-md-3">
+      <div class="profileLeft col-lg-3">
         <h3>About Me</h3>
         <br>
         <p> {{user.bio}}</p>
@@ -26,7 +26,7 @@
 
       </div>
 
-      <div class="profileRight col-md-9">
+      <div class="profileRight col-lg-9">
         <h3>Recent Posts</h3>
         {% for p in post %}
         {%if p.user_id == user.id %}
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="leftSide col-md-1">
+  <div class="leftSide col-lg-1">
   </div>
 
 

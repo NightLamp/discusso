@@ -5,11 +5,11 @@
 
 
 <div class="container-fluid">
-	<div class="leftSide col-md-2">
+	<div class="leftSide col-lg-2">
 
 	</div>
 
-	<div class="homePage col-md-8">
+	<div class="homePage col-lg-8">
 		<div class="special">
 			<h1> Trending Topics Near You</h1>
 		</div>
@@ -44,29 +44,29 @@
 				<h2> {{ post.title }} </h2>
 			</div>
 			<div class="innerTopic container-fluid">
-				<div class="col-md-3"></div>
-				<div class="col-md-3">
+				<div class="col-lg-3"></div>
+				<div class="col-lg-3">
 					<p>Blesses: {{post.blesses}} </p>
 				</div>
-				<div class="col-md-3">
+				<div class="col-lg-3">
 					<p>Curses: {{post.curses}} </p>
 				</div>
-				<div class="col-md-3"></div>
+				<div class="col-lg-3"></div>
 			</div>
 
 			<div class="links container-fluid">
-				<div class="viewComment col-md-4"></div>
-				<div class="viewComment col-md-4">
+				<div class="viewComment col-lg-4"></div>
+				<div class="viewComment col-lg-4">
 					<p><a href="{{ url_for('topic',postid = '') }}{{post.id}}"> View Comments </a> </p>
 				</div>
-				<div class="viewComment col-md-4"></div>
+				<div class="viewComment col-lg-4"></div>
 			</div>
 		</div>
 		{% endfor %}
 
 	</div>
 
-	<div class="rightSide col-md-2">
+	<div class="rightSide col-lg-2">
 
 	</div>
 </div>
