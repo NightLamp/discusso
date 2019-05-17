@@ -41,10 +41,6 @@ class ReplyForm(FlaskForm):
     rSubmit = SubmitField('Post It')
 
 class BlessCurseForm(FlaskForm):
-    thePost = None
     choice = RadioField('your vote', choices=[('bless','bless'),('curse','curse')])
     bcSubmit = SubmitField('vote')
      
-    def setThePost(thePost):
-        this.thePost = thePost
-        return;

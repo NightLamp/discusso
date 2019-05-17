@@ -50,7 +50,7 @@ def topic(postid):
     myReply = Post.query.get(postid).p_replies.all()
     if bcForm.bcSubmit.data and bcForm.validate():
         blessed = ('bless' == bcForm.choice.data)
-        thePost = bcForm.thePost
+        thePost = myPost
         if blessed == True:
             thePost.blesses = thePost.blesses + 1 
         else:
