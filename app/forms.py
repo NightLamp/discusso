@@ -40,11 +40,19 @@ class ReplyForm(FlaskForm):
     stance = RadioField('stance', choices=[('True','for'),('False','against')])
     rSubmit = SubmitField('Post It')
 
-class BlessCurseForm(FlaskForm):
-    thePost = None
-    choice = RadioField('your vote', choices=[('bless','bless'),('curse','curse')])
-    bcSubmit = SubmitField('vote')
-     
-    def setThePost(thePost):
-        this.thePost = thePost
-        return;
+#class BlessCurseForm(FlaskForm):
+#    thePost = None
+#    choice = RadioField('your vote', choices=[('bless','bless'),('curse','curse')])
+#    bcSubmit = SubmitField('vote')
+#     
+#    def setThePost(thePost):
+#        this.thePost = thePost
+#        return;
+
+
+def DynamicBCform(arg):
+    class TempForm(FlaskForm):
+        choice = RadioField('your vote', choices=[('bless','bless'),('curse','curse')])
+        bcSubmit = SubmitField('vote')
+    setattr(TempForm, 'dbObj', arg)
+    return TempForm()

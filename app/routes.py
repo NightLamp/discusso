@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, BlessCurseForm
+from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, DynamicBCform
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from app.models import User, Post, Reply
@@ -35,31 +35,127 @@ def tutorial():
 
 @app.route('/topicpage/<postid>', methods=['GET', 'POST'])
 def topic(postid):
-    myPost = Post.query.get(postid)
-    rForm = ReplyForm()
-    bcForm = BlessCurseForm()
+    mainPost = Post.query.get(postid)
+    mainBCForm = DynamicBCform(mainPost)
 
+
+    rForm = ReplyForm()
     if rForm.rSubmit.data and rForm.validate():
         reply = Reply(post_id=postid, text=rForm.text.data, stance=('True' == rForm.stance.data))
         db.session.add(reply)
         db.session.commit()
-        myReply = Post.query.get(postid).p_replies.all()
-        return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=rForm, bcForm=bcForm)
+        replies = Post.query.get(postid).p_replies.all()
+   
 
-    # myReply calculated here in case a bless or curse is detected. instead.
-    myReply = Post.query.get(postid).p_replies.all()
-    if bcForm.bcSubmit.data and bcForm.validate():
-        blessed = ('bless' == bcForm.choice.data)
-        thePost = bcForm.thePost
+    replies = Post.query.get(postid).p_replies.all()
+    BCrForms = [DynamicBCform(reply) for reply in replies]
+    replyData = []
+    for i in range(len(replies)):
+        replyData.append((replies[i], BCrForms[i]))
+#        if BCrForms[i].bcSubmit.data and BCrForms[i].validate():
+#            blessed = ('bless' == BCrForms[i].choice.data)
+#            dbObj = BCrForms[i].dbObj
+#            if blessed == True:
+#                dbObj.blesses = dbObj.blesses + 1 
+#            else:
+#                dbObj.curses = dbObj.curses + 1
+#                db.session.commit()
+#            return render_template('topicpage.html', title='Topic', post=mainPost, replyData=replyData, form=rForm, mainBCForm=mainBCForm) 
+        
+#    if mainBCForm.bcSubmit.data and mainBCForm.validate():
+    if mainBCForm.validate_on_submit():
+        blessed = ('bless' == mainBCForm.choice.data)
+        dbObj = mainBCForm.dbObj
         if blessed == True:
-            thePost.blesses = thePost.blesses + 1 
+            dbObj.blesses = dbObj.blesses + 1 
         else:
-            thePost.curses = thePost.curses + 1
-        db.session.commit()
-        return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=rForm, bcForm=bcForm)
+            dbObj.curses = dbObj.curses + 1
+            db.session.commit()
+        return render_template('topicpage.html', title='Topic', post=mainPost, replyData=replyData, form=rForm, mainBCForm=mainBCForm) 
+                   
 
-    myReply = Post.query.get(postid).p_replies.all()
-    return render_template('topicpage.html', title='Topic', post = myPost, replies = myReply, form=rForm, bcForm=bcForm)
+    return render_template('topicpage.html', title='Topic', post=mainPost, replies=replyData, BCrForms=BCrForms, form=rForm, mainBCForm=mainBCForm) 
+    
+
+
+
+
+# @app.route('/topicpage/<postid>', methods=['GET', 'POST'])
+# def topic(postid):
+#     myPost = Post.query.get(postid)
+#     rForm = ReplyForm()
+#     bcForm = BlessCurseForm()
+#     bcForm.thePost = myPost
+# 
+#    
+#     # myReply calculated here in case a bless or curse is detected. instead.
+#     myReply = Post.query.get(postid).p_replies.all()
+#     replyAndForm = []
+#     
+#     for i in range(len(myReply)):
+#         reply = myReply[i]
+#         replyBCform = BlessCurseForm() 
+#         replyBCform.thePost = reply
+#         replyAndForm.append([myReply[i], replyBCform])
+# #        if replyBCform.bcSubmit.data and replyBCform.validate():
+# #            blessed = ('bless' == bcForm.choice.data)
+# #            thePost = reply
+# #            if blessed == True:
+# #                thePost.blesses = thePost.blesses + 1 
+# #            else:
+# #                thePost.curses = thePost.curses + 1
+# #            db.session.commit()
+# #            return render_template('topicpage.html', title='Topic', post=myPost, replies=replyAndForm, form=rForm, bcForm=bcForm)
+# 
+#     for replyData in replyAndForm:
+#         if replyData[1].bcSubmit.data and replyData[1].validate():
+#             blessed = ('bless' == replyData[1].choice.data)
+#             thePost = replyData[0]
+#             if blessed == True:
+#                 thePost.blesses = thePost.blesses + 1 
+#             else:
+#                 thePost.curses = thePost.curses + 1
+#             db.session.commit()
+#             return render_template('topicpage.html', title='Topic', post=myPost, replies=replyAndForm, form=rForm, bcForm=bcForm)
+# 
+# 
+# 
+#     if rForm.rSubmit.data and rForm.validate():
+#         reply = Reply(post_id=postid, text=rForm.text.data, stance=('True' == rForm.stance.data))
+#         db.session.add(reply)
+#         db.session.commit()
+#         myReply = Post.query.get(postid).p_replies.all()
+#         return render_template('topicpage.html', title='Topic', post = myPost, replies = replyAndForm, form=rForm, bcForm=bcForm)
+#      
+# 
+# #    for reply in myReply:
+# #        replyBCform = BlessCurseForm() 
+# #        replyBCform.thePost = reply
+# #        if replyBCform.bcSubmit.data and replyBCform.validate():
+# #            blessed = ('bless' == bcForm.choice.data)
+# #            thePost = reply
+# #            if blessed == True:
+# #                thePost.blesses = thePost.blesses + 1 
+# #            else:
+# #                thePost.curses = thePost.curses + 1
+# #            db.session.commit()
+# #            reply = [reply, replyBCform]
+# #            return render_template('topicpage.html', title='Topic', post=myPost, replies=myReply, form=rForm, bcForm=bcForm)
+# 
+# 
+#     # Only does top post
+#     if bcForm.bcSubmit.data and bcForm.validate():
+#         blessed = ('bless' == bcForm.choice.data)
+#         thePost = bcForm.thePost
+#         if blessed == True:
+#             thePost.blesses = thePost.blesses + 1 
+#         else:
+#             thePost.curses = thePost.curses + 1
+#         db.session.commit()
+#         return render_template('topicpage.html', title='Topic', post=myPost, replies=replyAndForm, form=rForm, bcForm=bcForm)
+# 
+#     myReply = Post.query.get(postid).p_replies.all()
+#     return render_template('topicpage.html', title='Topic', post=myPost, replies=replyAndForm, form=rForm, bcForm=bcForm)
 
 
 @app.route('/profile/<userid>')

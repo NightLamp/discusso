@@ -22,13 +22,12 @@
 				</div>
                 
                 <form action="" method="post">
-                    {{ bcForm.hidden_tag() }}
-                    <!--{% bcForm.setThePost(post) %} TODO: find out how to do this-->
+                    {{ mainBCForm.hidden_tag() }}
                     <p>
-                        {{ bcForm.choice() }}
+                        {{ mainBCForm.choice() }}
                     </p>
                     <p>
-                        {{ bcForm.bcSubmit() }}
+                        {{ mainBCForm.bcSubmit() }}
                     </p>
                     
                 </form>
@@ -59,19 +58,32 @@
             </div>
         {% endif %}
 
-		{% for reply in replies %}
+		{% for reply in replyData %}
 		<div class="comment">
 			<div class = "header">
-			<h4> {{reply.text}} </h4>
+			<h4> {{reply[0].text}} </h4>
 		</div>
 
 			<div class="innerTopic container-fluid">
 				<div class="col-md-6">
-					<p>Blesses: {{reply.blesses}} </p>
+					<p>Blesses: {{reply[0].blesses}} </p>
 				</div>
 				<div class="col-md-6">
-					<p>Curses: {{reply.curses}} </p>
+					<p>Curses: {{reply[0].curses}} </p>
 				</div>
+
+                <form action="" method="post">
+                    {{ reply[1].hidden_tag() }}
+                    <p>
+                        {{ reply[1].choice() }}
+                    </p>
+                    <p>
+                        {{ reply[1].bcSubmit() }}
+                    </p>
+                    
+                </form>
+
+                
 			</div>
 			{% endfor %}
 			<!--
