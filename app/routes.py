@@ -74,6 +74,8 @@ def topic(postid):
 @app.route('/profile/<userid>')
 def profile(userid):
     myUser = User.query.get(userid)
+    if myUser == None:
+        return redirect(url_for('homepage'))
     return render_template('profile.html', title='Profile', user=myUser)
 
 
