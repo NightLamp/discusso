@@ -77,13 +77,23 @@ def topic(postid):
     if bcForm.bcSubmit.data and bcForm.validate():
         blessed = ('bless' == bcForm.choice.data)
         thePost = myPost
-        post_bc = Post_BC(post_id=thePost.id, user_id=current_user.id, stance=blessed)
-        if blessed == True:
-            thePost.blesses = thePost.blesses + 1 
-        else:
-            thePost.curses = thePost.curses + 1
-        db.session.add(post_bc)
-        db.session.commit()
+        post_bc_query = thePost.user_votes.filter_by(user_id=current_user.id).first()
+        if  post_bc_query == None: 
+            post_bc = Post_BC(post_id=thePost.id, user_id=current_user.id, stance=blessed)
+            if blessed == True:
+                thePost.blesses = thePost.blesses + 1 
+            else:
+                thePost.curses = thePost.curses + 1
+            db.session.add(post_bc)
+            db.session.commit()
+        elif post_bc_query.stance != blessed: 
+            if blessed == True:
+                thePost.blesses +=  1 
+                thePost.curses -=  1
+            else:
+                thePost.curses +=  1
+                thePost.blesses -=  1 
+            db.session.commit()
         myReply = Post.query.get(postid).p_replies.all()
         return render_template('topicpage.html', title='Topic', post=myPost, 
                                replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
