@@ -1,0 +1,43 @@
+{% extends "topbar.html" %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+
+    <div class="leftSide col-lg-1">
+    </div>
+
+    <div class="mainArea col-lg-10">
+        <div class="container-fluid">
+            <div class="special">
+                <h1> Change Your Bio</h1>
+            </div>
+
+            {% if current_user.id == user.id %}
+            <div class='form'>
+                <form action="" method="post">
+                    {{ form.hidden_tag() }}
+
+                    <p>
+                        {{ form.newBio.label }}<br>
+                        {{ form.newBio(size=248) }}<br>
+                        {% for error in form.newBio.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>{{ form.submit() }}</p>
+                </form>
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+    <div class="leftSide col-lg-1">
+    </div>
+
+
+</div>
+{% endblock %}
