@@ -36,11 +36,12 @@ class MakePostForm(FlaskForm):
     submit = SubmitField('Post It')
 
 
+
 class ReplyForm(FlaskForm):
     text = StringField('reply', validators=[DataRequired()])
     stance = RadioField('stance', choices=[
                         ('True', 'for'), ('False', 'against')])
-    submit = SubmitField('Post It')
+    rSubmit = SubmitField('Post It')
 
 
 class updateBioForm(FlaskForm):
@@ -51,3 +52,8 @@ class emailForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     desc = StringField('description (optional)')
     submit = SubmitField('submit')
+
+class BlessCurseForm(FlaskForm):
+    choice = RadioField('your vote', choices=[('bless','bless'),('curse','curse')])
+    bcSubmit = SubmitField('vote')
+     

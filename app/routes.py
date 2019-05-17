@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, updateBioForm, emailForm
+from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, updateBioForm, emailForm, BlessCurseForm
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from app.models import User, Post, Reply
@@ -60,16 +60,35 @@ def tutorial():
 def topic(postid):
     allUsers = User.query.all()
     myPost = Post.query.get(postid)
-    form = ReplyForm()
-    if form.validate_on_submit():
-        reply = Reply(post_id=postid, text=form.text.data,
-                      stance=('True' == form.stance.data), user_id=current_user.id)
+# NEW
+
+    rForm = ReplyForm()
+    bcForm = BlessCurseForm()
+
+    if rForm.rSubmit.data and rForm.validate():
+        reply = Reply(post_id=postid, text=rForm.text.data,
+                      stance=('True' == rForm.stance.data), user_id=current_user.id)
         db.session.add(reply)
         db.session.commit()
         myReply = Post.query.get(postid).p_replies.all()
-        return render_template('topicpage.html', title='Topic',user=allUsers, post=myPost, replies=myReply, form=form)
+        return render_template('topicpage.html', title='Topic', post=myPost, 
+                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
+
+    if bcForm.bcSubmit.data and bcForm.validate():
+        blessed = ('bless' == bcForm.choice.data)
+        thePost = myPost
+        if blessed == True:
+            thePost.blesses = thePost.blesses + 1 
+        else:
+            thePost.curses = thePost.curses + 1
+        db.session.commit()
+        myReply = Post.query.get(postid).p_replies.all()
+        return render_template('topicpage.html', title='Topic', post=myPost, 
+                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
+        
     myReply = Post.query.get(postid).p_replies.all()
-    return render_template('topicpage.html', title='Topic',user=allUsers, post=myPost, replies=myReply, form=form)
+    return render_template('topicpage.html', title='Topic', post=myPost, 
+                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
 
 
 @app.route('/profile/<userid>')

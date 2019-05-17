@@ -36,7 +36,19 @@
 					<br>
 					<p>{{post.desc}}</p>
 				</div>
+                
+                <form action="" method="post">
+                    {{ bcForm.hidden_tag() }}
+                    <p>
+                        {{ bcForm.choice() }}
+                    </p>
+                    <p>
+                        {{ bcForm.bcSubmit() }}
+                    </p>
+                    
+                </form>
 			</div>
+
 
 		</div>
         {% if not current_user.is_anonymous %}
@@ -57,7 +69,7 @@
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </p>
-                    <p> {{form.submit() }}</p>
+                    <p> {{form.rSubmit() }}</p>
                 </form>
             </div>
         {% endif %}
