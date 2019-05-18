@@ -51,6 +51,7 @@
 					<p>{{post.desc}}</p>
 				</div>
 
+				{% if not current_user.is_anonymous %}
 				<form action="" method="post">
 					{{ bcForm.hidden_tag() }}
 					<p>
@@ -61,6 +62,7 @@
 					</p>
 
 				</form>
+				{% endif %}
 			</div>
 		</div>
 

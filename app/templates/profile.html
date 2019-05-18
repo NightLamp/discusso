@@ -16,7 +16,7 @@
         {% endif %}
       </div>
 
-      <div class="profileLeft col-lg-3">
+      <div class="profileLeft col-lg-4">
         <h3>About Me</h3>
         <br>
         <div class="imgBox">
@@ -29,12 +29,14 @@
 
       </div>
 
-      <div class="profileRight col-lg-9">
+      <div class="profileRight col-lg-8">
         <h3>Recent Posts</h3>
         {% for p in post %}
         {%if p.user_id == user.id %}
+        <div class = "sampleTopic">
         <h4> {{ p.title }}</h4>
         <p><a href="{{ url_for('topic',postid = '') }}{{p.id}}"> View Post </a> </p>
+      </div>
         <br><br>
         {% endif %}
         {% endfor %}

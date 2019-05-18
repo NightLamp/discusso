@@ -61,7 +61,29 @@
 				</div>
 				<div class="viewComment col-lg-4"></div>
 			</div>
+
+			{% for u in user %}
+			{% if u.id == post.user_id %}
+			<div class="hoverOnly container-fluid">
+
+				<div class="col-lg-6">
+					<h3> Posted By :</h3>
+					<h3><a href="{{ url_for('profile',userid = '') }}{{u.id}}">{{u.username}}</a>
+					</h3>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="imgBox">
+						<img src="{{ u.avatar(128) }}">
+					</div>
+				</div>
+				{%endif%}
+			{%endfor%}
+			</div>
+			
 		</div>
+		<br>
+		<br>
 		{% endfor %}
 
 	</div>
@@ -70,4 +92,5 @@
 
 	</div>
 </div>
+<script type=text/javascript src="{{url_for('static', filename='ourScripts.js') }}"></script>
 {% endblock %}

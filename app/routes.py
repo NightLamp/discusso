@@ -14,13 +14,14 @@ from app import db
 @app.route('/homepage', methods=['GET', 'POST'])
 def homepage():
     form = MakePostForm()
+    allUsers = User.query.all()
     if form.validate_on_submit():
         post = Post(title=form.title.data, desc=form.desc.data,
                     user_id=current_user.id)
         db.session.add(post)
         db.session.commit()
-        return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form)
-    return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form)
+        return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form, user=allUsers)
+    return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form, user=allUsers)
 
 
 @app.route('/logout')
@@ -129,7 +130,6 @@ def contact():
     form = emailForm()
     if form.validate_on_submit():
         flash('Email Sent to the administration team')
-        #add feature to send email to us, or not.............
         return render_template('contact.html', title='Contact', form=form)
     return render_template('contact.html', title='Contact', form=form)
 
