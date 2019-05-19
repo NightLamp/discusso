@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, abort
 from app import app
 from app.forms import LoginForm, RegistrationForm, MakePostForm, ReplyForm, updateBioForm, emailForm, BlessCurseForm
 from flask_login import current_user, login_user
@@ -62,6 +62,9 @@ def topic(postid):
     allUsers = User.query.all()
     myPost = Post.query.get(postid)
 
+    if myPost is None:
+        return render_template('404.html'), 404
+
     rForm = ReplyForm()
     bcForm = BlessCurseForm()
 
@@ -96,11 +99,11 @@ def topic(postid):
             post_bc_query.stance = blessed
             db.session.commit()
 
-        myReply = Post.query.get(postid).p_replies.all()
+        myReply = myPost.p_replies.all()
         return render_template('topicpage.html', title='Topic', post=myPost, 
                                replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
         
-    myReply = Post.query.get(postid).p_replies.all()
+    myReply = myPost.p_replies.all()
     return render_template('topicpage.html', title='Topic', post=myPost, 
                                replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
 
