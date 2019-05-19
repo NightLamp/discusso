@@ -1,73 +1,29 @@
-# CITS3403
-CIT4303 unit assignment, making a website with some form of social voting system
+# discusso
 
-The application should perform some kind of voting or ranking activity (social choice), based on the inputs from users.
-The application should be written using HTML, CSS, Flask, AJAX, JQuery, and Bootstrap. 
-Must be a multi user web application.
+# Purpose
 
-# Ideas
+The purpose of discusso is to provide a platform for people to rate and dicuss user generated content in the form of opinions. Users submit their opinion on a subject and get 'blessed' or 'cursed', referring to whether other users agree or disagree respectively. Each opinion can also be replied to by other users, who state whether their response is in agreement or disagreement with the post. What separates discusso from other website of this nature is that score of each reply to a post influences the score of the post. Lets walk through an examples:
 
-* Music/Movie Polls
-* Ranking recipes
-* Ranking the best fishing/surfing spots in Perth
-* Find the best units at UWA.
-* People rater (if you want to go really bad link it to fb or other social media)
-* Best uni clubs
-* Best laptops/phones/devices
-* A betting website
-* Best parking spots for uni
-* Argument solver
+Bruce really likes dogs, but hates cats. He decides to use discusso to voice this opinion, and gets 10 blesses and 5 curses in the first hour. Another user, Sherry, decides that she doesn't agree with Bruce, as she prefers cats more than dogs. She curses him which raises Bruce's posts curses to 6. Furthermore Sherry decides to voice her opinion on why cats are better than dogs. She responds to Bruces post with a reply in the comment section. Sherrys post gets 5 blesses and 3 curses. As Sherry has stated that this reply is in disagreement with the post, this causes the posts blesses value to increase by the amount of curses Sherrys reply has, and curses to increase by the amount of blesses Sherrys post has. If Sherrys post had of been in agreement with Bruces, the blesses of the post would increase by the amount of blesses this reply has, and the curses would increase by the amount of curses the reply has. 
 
-# Final Decision
+The overall votes of a post determines how the post was viewed by the community. A post with high blesses and low curses, is a post that is generally agreed with by the community. A vote with the opposite, would be generally disagreed with by the community. A controversial post, would be a post whether the difference in the blesses and curses is small, with respect to have many people have voted on it.
 
-* Argument solver
+# Architecture
 
-# Concept 
+The website is designed to revolve around the homepage. The homepage is the first page you see when you enter the website and is a list of the most recent topics posted by users of the website, with the newest bubbling to the top. From here, you can view each individual post, to see the replies to the post and scores accumulated by the post. 
 
-This website provides a platform for users to express their opinions on base arguments and recieve other user responses.
+Each post is associated with a user. From either the homepage, or an individual topic page, the user can navigate to the writer of a post or reply. This will navigate to the users profile page. The profile page contains a picture of the user, a small blurb about themselves written by the user, and a list of all the recent posts by that user. 
 
-To do this, the website implements a voting system that allows for people to vote on a base argument with a simple "agree" 
-or "disagree" anonomously, or optionally, when signed in, provide an reasoning argument for their vote that can be discussed 
-by other users with debuttle arguments. 
+Anybody can view profiles and posts on discusso. In order to vote, reply or create a new topic, you must first be a user. A button to sign in is available from the topbar, and if you are not already registered, this links to a form for you to become registered. Once registered you have free reign to create posts and replies, and also have the ability to delete and post that you have created. 
 
+If at any point there is confusion on the webpage, the webpage has two options. The first is the tutorial page which takes you step by step how to do everything on the webpage, and the second is the ability to contact administration. The contact details are provided for the administration team in the contact section, but another available option is to anonymously email the team from the built in email sender. This allows users to report issues and concerns anonymously. 
 
-# Potential Voting Algorithm 
+The website is run by administator accounts. Administrator account are regular accounts that have been given this attribute through the backend. These accounts have all the ability of regular accounts, but have the ability to remove any user, post or reply as they see fit. They have total control over the site. 
 
-The weight of a vote will be determined by the "popularity" of its linked reasoning argument and the "popularity" of its 
-debuttle arguments.
+# How to launch discusso
 
-The base argument will start at a score of 0. Users can then vote anonomously without a reasoning arg with a weight of 1(?).
-Users can also link a reasoning arg to their vote, which can itself be voted on. if the reasoning arg gets more "agree"
-votes than "disagree", then its weight will increase from 1 proportionatly to to the ratio of agree to disagree and the overall
-agree votes it recieves. A reasoning vote can only ever hit a minimum of 0. Furthermore, a reasoning arg can also receive a debuttle
-arguement which is an argument based vote which users can vote on. This can also not go further below 0 votes.
+To launch discusso a virtual environment encorporating everything in requirements.txt is required. Once this is established fork the repository into this environment and run 'Flask'. This will allow the website to be used on localhost.
 
-# Website Page Layout
+#Unit Testing
 
-The website will require a 'Discusssion Board' page, a 'Tutorial' page, a 'User Profile' page, a 'sign in/sign' up page, a 'Contact/Report' page and a 'Topic' page 
-for every base argument.
-
-Discussion Board:
-The discussion Board will be a list of topics or 'base arguments' submitted by the users. [The topics will be listed chronologically?] and
-will detail the argument raised, the user raising it, and the current vote [vote percentage?] for the topic.
-
-Tutorial Page:
-This page will be a simplistic page detailing to users what the website is about, and will explain how to use the website.
-
-User Profile:
-This page is to describe an inidividual user. It will feature an user profile (an 'about me'), a user picture, the number of followers a user has,
-and the option to follow the user, and the top argument and top comment the user has left on the website.
-
-Sign up/sign in:
-This page will be a simple page to allow users to sign into their profile and or sign up if they do not already have a user account.
-
-Contact/Report:
-This page will provide users with contact details of the administrator, and will provide the user with the ability to report other users for
-breaking website guidelines.
-
-Topic:
-The topic page will be a detailed version of a users base argument. Here the score of the argument will be shown, as well as statistic measures
-for the argument. This page will also show reasoning arguments, their votes, and debuttle arguments to each reasoning argument, which
-also shows their vote.
-  
-
+We were not able to encorporate any unit testing into discusso. Although throughout every commit we have been testing each aspect of the project; adding users, deleting users, creating posts, deleting posts e.t.c., we could not configure a testing environment in flask to automate this process. 
