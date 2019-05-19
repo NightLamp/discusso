@@ -20,8 +20,8 @@ def homepage():
                     user_id=current_user.id)
         db.session.add(post)
         db.session.commit()
-        return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form, user=allUsers)
-    return render_template('homepage.html', title='Home', posts=Post.query.all(), form=form, user=allUsers)
+        return render_template('homepage.html', title='Home', posts=Post.query.filter().order_by(Post.blesses), form=form, user=allUsers)
+    return render_template('homepage.html', title='Home', posts=Post.query.filter().order_by(Post.blesses), form=form, user=allUsers)
 
 
 @app.route('/logout')
