@@ -1,4 +1,7 @@
 # discusso
+References:
+Praying hand image: http://clipart-library.com/clipart/516920.htm
+pentagram image: http://clipart-library.com/clipart/527990.htm
 
 # Purpose
 

@@ -28,10 +28,16 @@
         {% endif %}
 
         <div class="col-lg-6">
-            <a href= {{url_for('applyBCtoUser', user_id=user.id, option='bless')}}>Blesses: {{user.blesses}} </a>
+            <a class="button1" href= {{url_for('applyBCtoUser', user_id=user.id, option='bless')}}>
+                <img src="{{url_for('static', filename='prayingHands.jpg') }}"  style="width:42px;height:42px;border:0"> 
+            </a>
+            <p>Blesses: {{user.blesses}}</p>
         </div>
         <div class="col-lg-6">
-            <a href= {{url_for('applyBCtoUser', user_id=user.id, option='curse')}}>Curses: {{user.curses}} </a>
+            <a class="button2"href= {{url_for('applyBCtoUser', user_id=user.id, option='curse')}}> 
+                <img src="{{url_for('static', filename='pentagram.jpg') }}"  style="width:42px;height:42px;border:0"> 
+            </a>
+            <p>Curses: {{user.curses}}</p>
         </div>
       </div>
 
