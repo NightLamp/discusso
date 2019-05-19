@@ -28,43 +28,50 @@ $(document).ready(function () {
     
 
 ////////////////////////////////////////////////////////////////
-//    $(this).submit(function (e) {
-//        e.preventDefault();
-//        var username = $('#username').val();
-//        var email = $('#email').val();
-//        var password = $('#password').val();
-//        var password2 = $('#password2').val();
-//        var title = $('#title').val();
-//        var text = $('#text').val();
-//        var subject = $('#subject').val();
+    $(this).submit(function (e) {
+       
+       var username = $('#username').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var password2 = $('#password2').val();
+        var title = $('#title').val();
+        var text = $('#text').val();
+       var subject = $('#subject').val();
 
     $(".error").remove();
 
         if (username.length < 1) {
-            $('#username').after('<span class="error">(Required)</span>');
+            $('#username').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
         if (password.length < 1) {
-            $('#password').after('<span class="error">(Required)</span>');
+            $('#password').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
 
         if (password2.length < 1) {
-            $('#password2').after('<span class="error">(Required)</span>');
+            $('#password2').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
 
         if (email.length < 1) {
-            $('#email').after('<span class="error">(Required)</span>');
+            $('#email').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
 
         if (title.length < 1) {
-            $('#title').after('<span class="error">(Required)</span>');
+            $('#title').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
 
         if (text.length < 1) {
-            $('#text').after('<span class="error">(Required)</span>');
+            $('#text').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
 
         if (subject.length < 1) {
-            $('#subject').after('<span class="error">(Required)</span>');
+            $('#subject').after('<span class="error">(Required, page not loaded until this field is filled.)</span>');
+            e.preventDefault();
         }
     })
   
