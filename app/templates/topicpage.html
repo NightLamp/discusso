@@ -109,13 +109,18 @@
 			</div>
 
 			<div class="innerTopic container-fluid">
-				<div class="col-lg-6">
-					<a href= {{url_for('applyBCtoReply', reply_id=reply.id, option='bless')}}>Blesses: {{reply.blesses}} </a>
-                    
-				</div>
-				<div class="col-lg-6">
-					<a href= {{url_for('applyBCtoReply', reply_id=reply.id, option='curse')}}>Curses: {{reply.curses}} </a>
-				</div>
+					<div class="col-lg-6">
+							<a class="button1" href= {{url_for('applyBCtoUser', user_id=user.id, option='bless')}}>
+								<img src="{{url_for('static', filename='prayingHands.jpg') }}"  style="width:42px;height:42px;border:0"> 
+							</a>
+							<p>Blesses: {{user.blesses}}</p>
+						</div>
+						<div class="col-lg-6">
+							<a class="button2"href= {{url_for('applyBCtoUser', user_id=user.id, option='curse')}}> 
+								<img src="{{url_for('static', filename='pentagram.jpg') }}"  style="width:42px;height:42px;border:0"> 
+							</a>
+							<p>Curses: {{user.curses}}</p>
+						</div>
 			</div>
 		</div>
 			<br>
