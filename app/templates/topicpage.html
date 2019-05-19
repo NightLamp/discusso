@@ -110,10 +110,11 @@
 
 			<div class="innerTopic container-fluid">
 				<div class="col-lg-6">
-					<p>Blesses: {{reply.blesses}} </p>
+					<a href= {{url_for('applyBCtoReply', reply_id=reply.id, option='bless')}}>Blesses: {{reply.blesses}} </a>
+                    
 				</div>
 				<div class="col-lg-6">
-					<p>Curses: {{reply.curses}} </p>
+					<a href= {{url_for('applyBCtoReply', reply_id=reply.id, option='curse')}}>Curses: {{reply.curses}} </a>
 				</div>
 			</div>
 		</div>

@@ -108,6 +108,18 @@ def topic(postid):
                                replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
 
 
+@app.route('/bc/<int:reply_id>/<option>')
+@login_required
+def applyBCtoReply(reply_id, option):
+    if option == 'bless':
+        current_user.blessReply(reply_id=reply_id)
+    elif option == 'curse':
+        current_user.curseReply(reply_id=reply_id)
+    db.session.commit()
+    return redirect(request.referrer)
+        
+
+
 @app.route('/profile/<userid>')
 def profile(userid):
     allPost= Post.query.all()

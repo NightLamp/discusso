@@ -36,6 +36,44 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.passwd_hash, password)
 
+    def hasBlessedReply(self, reply_id):
+        r_bc = Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first() 
+        if r_bc != None and r_bc.stance == True:
+            return True
+        return False 
+
+    def blessReply(self, reply_id):
+        reply = Reply.query.get(reply_id)
+        if not self.hasBlessedReply(reply_id):
+            if not self.hasCursedReply(reply_id):
+                reply.blesses += 1
+                R_BC = Reply_BC(user_id=self.id, reply_id=reply_id, stance=True)
+                db.session.add(R_BC)
+            else:
+                reply.blesses += 1
+                reply.curses -= 1
+                Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first().stance = True 
+
+
+    def hasCursedReply(self, reply_id):
+        r_bc = Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first() 
+        if r_bc != None and r_bc.stance == False:
+            return True
+        return False 
+                 
+
+    def curseReply(self, reply_id):
+        reply = Reply.query.get(reply_id)
+        if not self.hasCursedReply(reply_id):
+            if not self.hasBlessedReply(reply_id):
+                reply.curses += 1
+                R_BC = Reply_BC(user_id=self.id, reply_id=reply_id, stance=False)
+                db.session.add(R_BC)
+            else:
+                reply.blesses -= 1
+                reply.curses += 1
+                Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first().stance = False 
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -53,6 +91,7 @@ class Post(db.Model):
         return '<id {}, Post {}>'.format(self.id, self.title)
 
 
+
 class Post_BC(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -60,7 +99,7 @@ class Post_BC(db.Model):
     stance = db.Column(db.Boolean)
 
     def __repr__(self):
-        return '<id {}, Post_BC>'.format(self.id, self.title)
+        return '<id {}, Post_BC>'.format(self.id)
 
     
 class Reply(db.Model):
@@ -75,9 +114,22 @@ class Reply(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     # r_replies   = db.relationship('Reply', backref='ogPost', lazy='dynamic')
+    user_votes = db.relationship('Reply_BC', backref='reply', lazy='dynamic')
 
     def __repr__(self):
         return '<id {}, Reply {}>'.format(self.id, self.text)
+
+
+class Reply_BC(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    reply_id = db.Column(db.Integer, db.ForeignKey('reply.id'))
+    stance = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return '<id {}, Reply_BC>'.format(self.id)
+
+
 
 
 # Old code from mega tutorial
