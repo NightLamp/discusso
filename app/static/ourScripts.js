@@ -28,15 +28,15 @@ $(document).ready(function () {
     
 
 ////////////////////////////////////////////////////////////////
-    $(this).submit(function (e) {
-        e.preventDefault();
-        var username = $('#username').val();
-        var email = $('#email').val();
-        var password = $('#password').val();
-        var password2 = $('#password2').val();
-        var title = $('#title').val();
-        var text = $('#text').val();
-        var subject = $('#subject').val();
+//    $(this).submit(function (e) {
+//        e.preventDefault();
+//        var username = $('#username').val();
+//        var email = $('#email').val();
+//        var password = $('#password').val();
+//        var password2 = $('#password2').val();
+//        var title = $('#title').val();
+//        var text = $('#text').val();
+//        var subject = $('#subject').val();
 
     $(".error").remove();
 
