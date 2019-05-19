@@ -18,6 +18,8 @@ class User(UserMixin, db.Model):
     passwd_hash = db.Column(db.String(128))
     email = db.Column(db.String(120), index=True, unique=True)
     admin = db.Column(db.Boolean)
+    blesses = db.Column(db.Integer, default=0)
+    curses = db.Column(db.Integer, default=0)
     
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
@@ -54,14 +56,12 @@ class User(UserMixin, db.Model):
                 reply.curses -= 1
                 Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first().stance = True 
 
-
     def hasCursedReply(self, reply_id):
         r_bc = Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first() 
         if r_bc != None and r_bc.stance == False:
             return True
         return False 
                  
-
     def curseReply(self, reply_id):
         reply = Reply.query.get(reply_id)
         if not self.hasCursedReply(reply_id):
@@ -73,6 +73,56 @@ class User(UserMixin, db.Model):
                 reply.blesses -= 1
                 reply.curses += 1
                 Reply_BC.query.filter_by(user_id=self.id, reply_id=reply_id).first().stance = False 
+
+
+    def hasBlessedUser(self, user_id):
+        u_bc = User_BC.query.filter_by(user_id=user_id, voter_id=self.id).first() 
+        if u_bc != None and u_bc.stance == True:
+            return True
+        return False 
+
+    def blessUser(self, user_id):
+        user = User.query.get(user_id)
+        if not self.hasBlessedUser(user_id):
+            if not self.hasCursedUser(user_id):
+                user.blesses += 1
+                U_BC = User_BC(user_id=user_id, voter_id=self.id, stance=True)
+                db.session.add(U_BC)
+            else:
+                user.blesses += 1
+                user.curses -= 1
+                User_BC.query.filter_by(user_id=user_id, voter_id=self.id).first().stance = True 
+
+
+    def hasCursedUser(self, user_id):
+        u_bc = User_BC.query.filter_by(user_id=user_id, voter_id=self.id).first() 
+        if u_bc != None and u_bc.stance == False:
+            return True
+        return False 
+                 
+
+    def curseUser(self, user_id):
+        user = User.query.get(user_id)
+        if not self.hasCursedUser(user_id):
+            if not self.hasBlessedUser(user_id):
+                user.curses += 1
+                U_BC = User_BC(user_id=user_id, voter_id=self.id, stance=False)
+                db.session.add(U_BC)
+            else:
+                user.blesses -= 1
+                user.curses += 1
+                User_BC.query.filter_by(user_id=user_id, voter_id=self.id).first().stance = False 
+    
+    
+
+class User_BC(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    voter_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    stance = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return '<id {}, User_BC>'.format(self.id)
 
 
 class Post(db.Model):

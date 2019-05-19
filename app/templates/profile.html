@@ -27,6 +27,12 @@
         <p> <a href="{{ url_for('updateBio',userid = '') }}{{user.id}}"> Update Your Bio</a></p>
         {% endif %}
 
+        <div class="col-lg-6">
+            <a href= {{url_for('applyBCtoUser', user_id=user.id, option='bless')}}>Blesses: {{user.blesses}} </a>
+        </div>
+        <div class="col-lg-6">
+            <a href= {{url_for('applyBCtoUser', user_id=user.id, option='curse')}}>Curses: {{user.curses}} </a>
+        </div>
       </div>
 
       <div class="profileRight col-lg-8">
@@ -42,6 +48,8 @@
         {% endfor %}
 
       </div>
+
+
     </div>
   </div>
 

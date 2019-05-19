@@ -129,6 +129,17 @@ def profile(userid):
     return render_template('profile.html', title='Profile', user=myUser, post=allPost)
 
 
+@app.route('/ubc/<int:user_id>/<option>')
+@login_required
+def applyBCtoUser(user_id, option):
+    if option == 'bless':
+        current_user.blessUser(user_id=user_id)
+    elif option == 'curse':
+        current_user.curseUser(user_id=user_id)
+    db.session.commit()
+    return redirect(request.referrer)
+
+
 @app.route('/updateBio/<userid>', methods=['GET', 'POST'])
 def updateBio(userid):
     myUser = User.query.get(userid)
