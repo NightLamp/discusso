@@ -36,12 +36,22 @@
 			{%endfor%}
 
 			<div class="innerTopic container-fluid">
-				<div class="col-lg-6">
-					<p>Blesses: {{post.blesses}} </p>
-				</div>
-				<div class="col-lg-6">
-					<p>Curses: {{post.curses}} </p>
-				</div>
+				{% if not current_user.is_anonymous %}
+                    <div class="col-lg-6">
+                        <a href= {{url_for('applyBCtoPost', uid=current_user.id, pid=post.id, option='bless')}}>Blesses: {{post.blesses}} </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <a href= {{url_for('applyBCtoPost', uid=current_user.id, pid=post.id, option='curse')}}>Curses: {{post.curses}} </a>
+                    </div>
+                {% else %}
+                    <div class="col-lg-6">
+                        <p>Blesses: {{post.blesses}} </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>Curses: {{post.curses}} </p>
+                    </div>
+
+				{% endif %}
 				<br>
 				<br>
 				
@@ -51,18 +61,6 @@
 					<p>{{post.desc}}</p>
 				</div>
 
-				{% if not current_user.is_anonymous %}
-				<form action="" method="post">
-					{{ bcForm.hidden_tag() }}
-					<p>
-						{{ bcForm.choice() }}
-					</p>
-					<p>
-						{{ bcForm.bcSubmit() }}
-					</p>
-
-				</form>
-				{% endif %}
 			</div>
 		</div>
 

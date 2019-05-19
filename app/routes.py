@@ -66,7 +66,7 @@ def topic(postid):
         return render_template('404.html'), 404
 
     rForm = ReplyForm()
-    bcForm = BlessCurseForm()
+#    bcForm = BlessCurseForm()
 
     if rForm.rSubmit.data and rForm.validate():
         reply = Reply(post_id=postid, text=rForm.text.data,
@@ -75,37 +75,36 @@ def topic(postid):
         db.session.commit()
         myReply = Post.query.get(postid).p_replies.all()
         return render_template('topicpage.html', title='Topic', post=myPost, 
-                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
+                               replies=myReply, form=rForm, user=allUsers)
 
-    if bcForm.bcSubmit.data and bcForm.validate():
-        blessed = ('bless' == bcForm.choice.data)
-        thePost = myPost
-        post_bc_query = thePost.user_votes.filter_by(user_id=current_user.id).first()
-        if  post_bc_query == None: 
-            post_bc = Post_BC(post_id=thePost.id, user_id=current_user.id, stance=blessed)
-            if blessed == True:
-                thePost.blesses = thePost.blesses + 1 
-            else:
-                thePost.curses = thePost.curses + 1
-            db.session.add(post_bc)
-            db.session.commit()
-        elif post_bc_query.stance != blessed: 
-            if blessed == True:
-                thePost.blesses +=  1 
-                thePost.curses -=  1
-            else:
-                thePost.curses +=  1
-                thePost.blesses -=  1 
-            post_bc_query.stance = blessed
-            db.session.commit()
-
-        myReply = myPost.p_replies.all()
-        return render_template('topicpage.html', title='Topic', post=myPost, 
-                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
+#    if bcForm.bcSubmit.data and bcForm.validate():
+#        blessed = ('bless' == bcForm.choice.data)
+#        thePost = myPost
+#        post_bc_query = thePost.user_votes.filter_by(user_id=current_user.id).first()
+#        if  post_bc_query == None: 
+#            post_bc = Post_BC(post_id=thePost.id, user_id=current_user.id, stance=blessed)
+#            if blessed == True:
+#                thePost.blesses = thePost.blesses + 1 
+#            else:
+#                thePost.curses = thePost.curses + 1
+#            db.session.add(post_bc)
+#            db.session.commit()
+#        elif post_bc_query.stance != blessed: 
+#            if blessed == True:
+#                thePost.blesses +=  1 
+#                thePost.curses -=  1
+#            else:
+#                thePost.curses +=  1
+#                thePost.blesses -=  1 
+#            post_bc_query.stance = blessed
+#            db.session.commit()
+#
+#        myReply = myPost.p_replies.all()
+#        return render_template('topicpage.html', title='Topic', post=myPost, 
+#                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
         
     myReply = myPost.p_replies.all()
-    return render_template('topicpage.html', title='Topic', post=myPost, 
-                               replies=myReply, form=rForm, bcForm=bcForm, user=allUsers)
+    return render_template('topicpage.html', title='Topic', post=myPost, replies=myReply, form=rForm, user=allUsers)
 
 
 @app.route('/bc/<int:reply_id>/<option>')
@@ -127,6 +126,17 @@ def profile(userid):
     if myUser == None:
         return redirect(url_for('homepage'))
     return render_template('profile.html', title='Profile', user=myUser, post=allPost)
+
+
+@app.route('/pbc/<int:uid>/<int:pid>/<option>')
+@login_required
+def applyBCtoPost(uid, pid, option):
+    if option == 'bless':
+        Post.query.get(pid).blessedByUser(uid)
+    elif option == 'curse':
+        Post.query.get(pid).cursedByUser(uid)
+    db.session.commit()
+    return redirect(request.referrer)
 
 
 @app.route('/ubc/<int:user_id>/<option>')

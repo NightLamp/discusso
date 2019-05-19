@@ -140,6 +140,43 @@ class Post(db.Model):
     def __repr__(self):
         return '<id {}, Post {}>'.format(self.id, self.title)
 
+    def blessedByUser(self, uid):
+        if not self.isBlessedByUser(uid):
+            if not self.isCursedByUser(uid):
+                #hasn't voted yet
+                self.blesses += 1
+                p_bc = Post_BC(post_id=self.id, user_id=uid, stance=True)
+                db.session.add(p_bc)
+            else:
+                # change from curse to bless
+                self.blesses += 1
+                self.curses -= 1
+                Post_BC.query.filter_by(user_id=uid, post_id=self.id).first().stance = True;
+
+    def cursedByUser(self, uid):
+        if not self.isCursedByUser(uid):
+            if not self.isBlessedByUser(uid):
+                # hasn't voted yet
+                self.curses += 1
+                p_bc = Post_BC(post_id=self.id, user_id=uid, stance=False)
+                db.session.add(p_bc)
+            else:
+                # change from bless to curse
+                self.blesses -= 1
+                self.curses += 1
+                Post_BC.query.filter_by(user_id=uid, post_id=self.id).first().stance = False;
+
+    def isBlessedByUser(self, uid):
+        p_bc = Post_BC.query.filter_by(post_id=self.id, user_id=uid).first()
+        if p_bc != None and p_bc.stance == True:
+            return True
+        return False
+    
+    def isCursedByUser(self, uid):
+        p_bc = Post_BC.query.filter_by(post_id=self.id, user_id=uid).first()
+        if p_bc != None and p_bc.stance == False:
+            return True
+        return False
 
 
 class Post_BC(db.Model):
