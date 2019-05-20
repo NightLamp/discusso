@@ -1,0 +1,722 @@
+commit f259475b3a527978a5ece73d2f69067db24c9b81
+Author: deanvains <dean.vains@outlook.com>
+Date:   Mon May 20 10:09:33 2019 +0800
+
+    Populated the database
+
+commit c717b464af0d16fc38df26af8f5e96c7b69c2a11
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 21:46:30 2019 +0800
+
+    fixed some bugs and added images for post votes
+
+commit a6e614da1566c0b11770caa8bd833dca82eb26ad
+Merge: 588484f 8e6e8c1
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 21:20:57 2019 +0800
+
+    idk why im commiting now
+
+commit 588484f3dc2a44a4822a103f27092861026bf14e
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 21:18:35 2019 +0800
+
+    BC buttons for post now working
+
+commit 8e6e8c11b0b6686e36178d3e25deda8a665883c2
+Author: deanvains <dean.vains@outlook.com>
+Date:   Sun May 19 21:03:15 2019 +0800
+
+    changed post to be ordered by most popular:
+
+commit a652d80e4aec7390aedf3bbd7efdff8113657ff7
+Author: deanvains <dean.vains@outlook.com>
+Date:   Sun May 19 20:55:34 2019 +0800
+
+    Upvote and downvote images
+
+commit ab6cc252ffd6b380a04b1523c79a9a00c3759da2
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 20:30:06 2019 +0800
+
+    added to readme
+
+commit 661ecd1456614328b1fe10d1459a6c822bdab431
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 19:59:26 2019 +0800
+
+    user voting enabled
+
+commit a2c4b675b5388963c8918402fcafd1e4be6da7ff
+Merge: e882206 362a6b0
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 19:00:18 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/discusso
+
+commit e882206d8d7f376783cd0779a7ee8701a89895d7
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 18:59:45 2019 +0800
+
+    merged reply voting into master
+
+commit b96fb110baf01d040e82e1da035f0ef0214fb5ca
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 18:58:16 2019 +0800
+
+    added Reply_BC to shell
+
+commit 827f75174e7ae6d2746ded10741ac4fc7bb19efe
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 18:55:57 2019 +0800
+
+    IT WORKS
+
+commit 362a6b05cdf432f341383420dc5cec87e6f31750
+Author: deanvains <dean.vains@outlook.com>
+Date:   Sun May 19 18:37:01 2019 +0800
+
+    updated readme
+
+commit b682a3da5319265c01721abe80bef67a0538ac5b
+Author: deanvains <dean.vains@outlook.com>
+Date:   Sun May 19 17:46:33 2019 +0800
+
+    Got js to check forms on client side
+
+commit 24544aa0c7a7b78db0ec2c3e2054a28920cb7b48
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 09:17:31 2019 +0800
+
+    commented out js that stops form validation
+
+commit 1cb32a038bd1e66a708cac4385cadb09ecb0cbfd
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 09:16:21 2019 +0800
+
+    added basic error handling for non-existant pages
+
+commit 0f923981f2ab8061abcb97678ac68a05b0aeef63
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 19 09:15:52 2019 +0800
+
+    added basic error handling for non-existant pages
+
+commit 37fceab63311d4a36a51522ed5e2a71dd81ac32d
+Author: deanvains <dean.vains@outlook.com>
+Date:   Sat May 18 15:58:24 2019 +0800
+
+    added some jquery for form validation, hover css changes, and just minor style changes
+
+commit 74ee03aad24f95bd9e6887f58308c8e9f16163b0
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 20:44:44 2019 +0800
+
+    plz i hope this fix db
+
+commit 852177da464fd72f705dd3d87b90e2ab58d971c4
+Merge: c49c4d0 550467f
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 20:38:25 2019 +0800
+
+    fk git
+
+commit 550467f4c68a95924ee8a55af104ba312b57e695
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 20:37:07 2019 +0800
+
+    actual actual fixed db and now can only vote once for real my dude
+
+commit f862199982a78f2a886103a9d0cab5236d20da39
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 20:11:24 2019 +0800
+
+    actual fixed the db
+
+commit c49c4d0ad5f18a0fe0a30d2d2fef335a846d0d09
+Merge: fa2de2a 8654a4d
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 20:08:19 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/discusso
+
+commit fa2de2a7f236c791a6974f3f555ee020886e5c76
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 20:07:47 2019 +0800
+
+    added images
+
+commit 8654a4dea9a5fb8925f59f6de67cdc95d531bb2a
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 20:05:14 2019 +0800
+
+    i think i fixed migrations error
+
+commit 72ecb4ba3ea8e6b107033af6d1abf4307e798d53
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 19:53:21 2019 +0800
+
+    added updatebio
+
+commit aca7ef223f11e85ff94e1f3320b157232a93fd14
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 19:48:42 2019 +0800
+
+    fixed db again
+
+commit 7849e75d7f12f1c9884f898943b4051dcdc5b0a4
+Merge: dc184e9 633fcdb
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 19:42:59 2019 +0800
+
+    css changes
+
+commit dc184e9f99aa1f968dd181236013da913e6bed97
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 19:41:17 2019 +0800
+
+    css changes
+
+commit 633fcdbca0c21c2f195262d8edc5cc6a1a6ab677
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 19:39:50 2019 +0800
+
+    made votes only once per user per post
+
+commit 5f61f7cbe3cf6d31e3e4919acc355c52ebf9c15d
+Merge: a4acca7 4f1173a
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 19:23:59 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/discusso
+
+commit a4acca72ed36b7eefa6de04c039d1569c6ba536f
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 19:23:33 2019 +0800
+
+    making users only vote once
+
+commit 4f1173a987b275475938770b15fad15e9000b060
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 19:16:57 2019 +0800
+
+    profile pictures working
+
+commit d68e718d5cbf1db119c1f04fc3a6828922d00a17
+Merge: c936bcb 961df87
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 18:41:40 2019 +0800
+
+    merged master with stable voting of posts
+
+commit 961df878204b298f7aa5c0b955f9476d0e9b8178
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 17 18:21:53 2019 +0800
+
+    fixed minor bug in template
+
+commit c936bcb68f1e47c113eb933a92a582bc227d07e7
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 18:21:00 2019 +0800
+
+    Commit before merge YEEHAW
+
+commit 0205c47daecd07e22335cac3b667b13aae454426
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 18:06:41 2019 +0800
+
+    fixed the solution for smaller screens
+
+commit 84f5082cd3cd840982d24c813ac7cd4b59ac8cc2
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 16:50:10 2019 +0800
+
+    commit YEEHAW
+
+commit baee6a7279a1f769e3b7344f96cb955aabd6e22a
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 15:37:42 2019 +0800
+
+    Each post and reply links to a user, each users profile links to all their posts
+
+commit be0970d1f29f62f98d751837c0abc3d05faf5fb2
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 14:27:20 2019 +0800
+
+    commit
+
+commit cba4905bde8b0d7c5cb0e695a3744764a9bc740c
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 17 14:07:51 2019 +0800
+
+    got deletion working for admdmins, minor changes
+
+commit 53c5a2c1eb70c8a391a72673ac7bc67371eb4812
+Author: deanvains <dean.vains@outlook.com>
+Date:   Tue May 14 22:12:43 2019 +0800
+
+    Made the automatic email service work, kind of....
+
+commit e47af23ffb78e8e9ef58ca322cde66cb1f5f8d13
+Author: deanvains <dean.vains@outlook.com>
+Date:   Tue May 14 22:00:05 2019 +0800
+
+    Changes: change bio, admin delete posts, topic page displays descriptions, altered profile page to show a list of all recent posts (doesnt work)
+
+commit a1c656ab1752821e2a814a71c4eabce6c69cae41
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 12 20:56:39 2019 +0800
+
+    database updating works, just need to get the form to recognise what post it is for
+
+commit 21cd77a770c3383cbb42b0c090091b8e40b87bbf
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Sun May 12 19:25:13 2019 +0800
+
+    think i branched. Trying to add voting to posts
+
+commit f9424d45475214f3b624c08fcc87057a6bc9568d
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 10 23:00:39 2019 +0800
+
+    added ability to reply to a post on topic page
+
+commit 7110c6f65bbc541b6e14f0efe3c66e2956f01ac8
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 10 17:49:29 2019 +0800
+
+    got make a poost sorted out and submits to the database. YEEHAW
+
+commit cb95bfc9d97a988d9b765f94df2650736a10f117
+Merge: d3c633e 6a17269
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 10 17:14:16 2019 +0800
+
+    removed my __pycache__
+
+commit d3c633e85c973eacae1fff3796ac045da9fb97e9
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 10 17:11:56 2019 +0800
+
+    added Make post stuff
+
+commit 6a17269ebdb6b95704d6af7a88135e58cccfdce4
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 10 17:05:36 2019 +0800
+
+    the profile thing works yeehaw
+
+commit 66d8b52cd35d18522043fc38353bcb7747fbcf69
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 10 16:04:12 2019 +0800
+
+    fixed issues with registering
+
+commit f474750029a8863bf76b2d52103ed0bde2a8d34f
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 10 15:32:31 2019 +0800
+
+    test db running and other stuff
+
+commit b2abe4e58668a13bc40bbe9cb6ea07185ca96fb6
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 10 14:22:20 2019 +0800
+
+    added some test class (not filled out) and changed the config to allow for testing on a testing database
+
+commit 61dd0369c95efa1e792c68dccd0f5f0dfcebc5dc
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 3 18:53:28 2019 +0800
+
+    its working yeeeeet
+
+commit 598dbf2e15323aa82b2cae967a30e304afc7de8f
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 17:42:58 2019 +0800
+
+    added a reply
+
+commit 9f1e9af4778fe43260b2fc27a5e9fea2861a4cca
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 17:38:28 2019 +0800
+
+    adding the new database and anything else I changed
+
+commit 391a2aefec583b5065c5372b1d47f3cad869becc
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 3 17:25:32 2019 +0800
+
+    my templates
+
+commit 6aefb075320e223a2d4c0f1e464f22d958ab565d
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 3 17:24:30 2019 +0800
+
+    my templates
+
+commit 06f6101c0ac59e6a2c371c706b7aff959433ee2e
+Merge: 7cadb3f a3dc0ae
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 17:04:46 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/discusso
+
+commit 7cadb3fd20ac74cd55117e0756c21304b27625cb
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 17:03:07 2019 +0800
+
+    Adding migration file
+
+commit a3dc0aecbeb94f3de46ba301f83ec3b6fe485136
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 3 17:02:20 2019 +0800
+
+    my commit
+
+commit 7353d441f9a8cdd95be779a2b8831077453283ec
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 16:55:38 2019 +0800
+
+    aded a user manually
+
+commit 289e6dac365892cbaa7209314d270dcaf2f18490
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 16:50:32 2019 +0800
+
+    redid the database so it didnt complain when migrating
+
+commit 79bf7ce6edbe421dc287b24f5044dd85654856d6
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri May 3 16:39:32 2019 +0800
+
+    removed __pycache__ because its a pain in the ass
+
+commit 118899a3537065202810da93aa7c69d882ef7487
+Author: deanvains <dean.vains@outlook.com>
+Date:   Fri May 3 16:35:16 2019 +0800
+
+    changed model
+
+commit 04f16bb0b52bf19d626050afba10ca7133b89231
+Author: deanvains <dean.vains@outlook.com>
+Date:   Thu May 2 12:35:14 2019 +0800
+
+    stylised the website to make it look pretty
+
+commit a08be1c17f45c4d553330a8a762447346379bc43
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Thu Apr 25 13:57:22 2019 +0800
+
+    added database models User, Post & Reply. Reply is not self relational
+
+commit d59a35df3aa406d1db90ce0dd30ad6d5f12767ad
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 16:34:06 2019 +0800
+
+    it works:
+
+commit 201f4870560e27989d726fd041d5a505acc388a1
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 16:17:08 2019 +0800
+
+    Updated each page so they will load, still need to add logic
+
+commit caf765e3a0adf1a932741c50dc7cbe821b0675a2
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 14:59:53 2019 +0800
+
+    added some user stories
+
+commit f91d22cd252474b48b3e6109fa75cacdbf8db3eb
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 14:37:59 2019 +0800
+
+    tested that db is working, it is and just needs to be changed to suit our schema
+
+commit a3b14e13eccb08b13170c3dd05636f7e8165d1fd
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 14:15:30 2019 +0800
+
+    Added git ignore for vscode
+
+commit c058daeaa1f6bf03be3bd60ece31b2af80d23d37
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 14:14:12 2019 +0800
+
+    Changes to routes.py to include new paths'
+
+commit f4b137799f993d4817c0e03411a9a400e165ce4d
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 13:56:21 2019 +0800
+
+    Continued work on templates
+
+commit 2bd7fc4590facc38887bda3e783eed60a97f4326
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 13:53:02 2019 +0800
+
+    "Changed all templates in flask html files,
+    need to update the logic in them"
+
+commit 6a4fa5c4b383c5f90b1cae1510d968946f3edd5b
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 13:50:42 2019 +0800
+
+    changing templates and commiting from VS code
+
+commit 5a156c2c406eadce9dc66617d3b953eb6cedc906
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 13:41:23 2019 +0800
+
+    part way through updating templates
+
+commit b2c0edb08e2f6f4bf64884101d704b2b06b6b01f
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 13:04:44 2019 +0800
+
+    changed template folder
+
+commit 7704ef11cacb5038688062f225c922ee341b23ef
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 11:57:58 2019 +0800
+
+    added my activate script to gitignore
+
+commit ed9b4a915e563069c0a207c185d57888c79bfb7a
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 11:54:19 2019 +0800
+
+    no longer need discusso activate
+
+commit 83624a061fbd29f3c51f0b3cc22ed9548e84517e
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 11:47:18 2019 +0800
+
+    my ignore
+
+commit dc0b5bc113d6c8b6aaabbe66bd2abd747d12c30c
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 11:45:51 2019 +0800
+
+    added my local ve to be ignored
+
+commit aef64f85972e68d428295a92ed2da1e008ca5705
+Merge: dd7b29a 3e9eb25
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 11:36:55 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/discusso
+
+commit dd7b29aeb1f2d65b9ffcca126ded2c3e7243eed1
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 11:36:38 2019 +0800
+
+    added requirements
+
+commit 3e9eb25be2cc63feb67025e850f811681b2ee5d6
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 11:33:40 2019 +0800
+
+    ignore all .pyc files
+
+commit 074945c82a2721213dfa7518b694ffb16aa4e421
+Merge: 4b3fa07 a3f8d4f
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 11:29:44 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/discusso
+
+commit 4b3fa07bfcf8b4610ba8410fb039fb3172686e6b
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 11:24:25 2019 +0800
+
+    removed virtual env due to issues with using them on different machines
+
+commit a3f8d4ff183d35171d7d4ec4cae5701cc84c17a9
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 11:19:41 2019 +0800
+
+    added ignore file
+
+commit ace645795b4443960474605bfcae20aa1b9ec0d1
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 10:52:33 2019 +0800
+
+    imported skeleton from flask tutorial
+
+commit 61a2ad0b4f092c143b0425d670d17ebe6e1fb6fe
+Merge: d3cbbb3 833f9f8
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 10:18:33 2019 +0800
+
+    Merge branch 'master' of https://github.com/NightLamp/CITS3403
+
+commit d3cbbb3e8d3f230efab5bcfcf0db933e544e0afa
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 24 10:14:33 2019 +0800
+
+    changing name to discusso lol
+
+commit 833f9f8590e31db68b5d32cf4ddd5cfc8e590267
+Author: deanvains <dean.vains@outlook.com>
+Date:   Wed Apr 24 10:06:02 2019 +0800
+
+    Made flask files
+
+commit dde4b1aed93c95ab6f6f990623e4e0b73bfae576
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Tue Apr 23 14:29:27 2019 +0800
+
+    added venv with flask installed on it and a script to activate it (this script must be run as a source file
+
+commit 776ba6e0d25ae87ce391dba3b62f4b11a9a4992f
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 10 22:32:14 2019 +0800
+
+    added style to profile
+
+commit 68d2007e22b2e02758b042384e6da1cf0e605fec
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 10 22:03:43 2019 +0800
+
+    trying to resize profile changer
+
+commit 772b47679594a6acf9bd1ab6491523eea4f98925
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 10 21:51:06 2019 +0800
+
+    trying to add profile pic changer
+
+commit fd0a8b27703bf1714821a6500dc4f793266beb07
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 10 21:27:30 2019 +0800
+
+    Added a profile page
+
+commit 1676806c284a683bdaed40266e057024eac6919c
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 10 20:45:59 2019 +0800
+
+    adding contact page and removing old topbar design
+
+commit 2b0e6599fc660e8da0b18f877099b30f961b1ff1
+Author: deanvains <dean.vains@outlook.com>
+Date:   Tue Apr 9 20:48:19 2019 +0800
+
+    Created the sample divs for the topic page comments, topic page comment replies, and for the home page comments. Also made minor changes to all document designs in CSS sheet. Checked all HTML and the CSS page against the web validator, all pages are now validated.
+
+commit 82947142706d11052d7f8dc4e4fb196ff093074e
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Mon Apr 8 23:53:18 2019 +0800
+
+    added user stories into file
+
+commit bc51015f202cb074778bb9d7ee6972ec4e0201e3
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Wed Apr 3 15:21:50 2019 +0800
+
+    adding userStories file in case we want it
+
+commit 4a1ff12b955e122d327a685d042f6cdbef1e9e4d
+Author: deanvains <dean.vains@outlook.com>
+Date:   Sat Mar 30 12:44:08 2019 +0800
+
+    adding all the files again which didn't correctly upload last time.
+
+commit 3b9dd3697fcae72fa6713e2c478a8f4d04de2d31
+Author: Dean Vains <deanv@deanpc.gateway>
+Date:   Sat Mar 30 12:33:09 2019 +0800
+
+    Made all the pages for the project, made a javascript file, updated the CSS, filled in the tutorial page and sign in/sign up page
+
+commit 52cfab707d5676c43c59e3f2c77fd3c8a04a8a9d
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri Mar 29 16:37:43 2019 +0800
+
+    added top bar to page
+
+commit 0355adefe1d90ed0493dd0edcddc1317e6b05aeb
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri Mar 29 16:32:26 2019 +0800
+
+    added fixed nav bar - hasn't been tested yet
+
+commit fedbe9849ee7fd3ba88888a99433cabdd57167c0
+Author: nightlamp <benjaminlongbottom98@gmail.com>
+Date:   Fri Mar 29 16:22:38 2019 +0800
+
+    made bar go all the way to the end of screen
+
+commit 196a37aa575deee618e631fb59a2f36e0c0a4805
+Author: Dean <39358693+deanvains@users.noreply.github.com>
+Date:   Sun Mar 24 23:36:49 2019 +0800
+
+    Deleted the text file used to create a folder
+
+commit c65d0eb15389881876343244416433000cbaa48d
+Author: Dean <39358693+deanvains@users.noreply.github.com>
+Date:   Sun Mar 24 23:36:08 2019 +0800
+
+    Created the html page for the Contact Us page.
+
+commit eb2b72f73368c9971ea3b3d7a5e46badb8195fba
+Author: Dean <39358693+deanvains@users.noreply.github.com>
+Date:   Sun Mar 24 23:35:37 2019 +0800
+
+    Create uselessFile
+
+commit 14520a5967c8bbbe801e9c7d990f0abbd2810d3c
+Author: Dean <39358693+deanvains@users.noreply.github.com>
+Date:   Sun Mar 24 23:33:16 2019 +0800
+
+    Add files via upload
+    
+    Updated the CSS for the Contact Us page.
+
+commit 7438a7b501a201f6f76174257dff7c427989ca1c
+Author: NightLamp <benjaminlongbottom98@gmail.com>
+Date:   Sun Mar 24 12:12:19 2019 +0800
+
+    changed topbar 1 to be more sleek
+
+commit c8e62534e4b6bdf6cdc99d3c07b22e69b0fde651
+Author: NightLamp <benjaminlongbottom98@gmail.com>
+Date:   Sun Mar 24 12:03:44 2019 +0800
+
+    added the topbar nav basic designs
+
+commit 49298dddfccf0f6b5586ea3074971ad8b406cea3
+Author: 22273794 <22273794@ecm-csse2110-l.uniwa.uwa.edu.au>
+Date:   Fri Mar 22 17:23:57 2019 +0800
+
+    Updated read me
+
+commit b5ab5afb9c4611fbe38539121287419c2b5a3595
+Author: 22273794 <22273794@ecm-csse2110-l.uniwa.uwa.edu.au>
+Date:   Fri Mar 22 17:17:32 2019 +0800
+
+    Updated read me
+
+commit e07817c701f2b237708bc1245504b990502acb2f
+Author: NightLamp <benjaminlongbottom98@gmail.com>
+Date:   Mon Mar 4 21:20:12 2019 +0800
+
+    added some ideas
+
+commit 46eb8c9fd41194283c3e85571f553c560c5b7946
+Author: NightLamp <benjaminlongbottom98@gmail.com>
+Date:   Mon Mar 4 21:17:30 2019 +0800
+
+    added some ideas
+
+commit a4bebfe6800438fdcc082babc2ccd2cec9ea4281
+Author: NightLamp <benjaminlongbottom98@gmail.com>
+Date:   Mon Mar 4 16:08:29 2019 +0800
+
+    added some files
+
+commit c72b7e6dba274258329cdd63606f475690f7416d
+Author: Lamp <44491043+NightLamp@users.noreply.github.com>
+Date:   Mon Mar 4 16:01:17 2019 +0800
+
+    Create README.md

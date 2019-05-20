@@ -1,7 +1,4 @@
 # discusso
-References:
-Praying hand image: http://clipart-library.com/clipart/516920.htm
-pentagram image: http://clipart-library.com/clipart/527990.htm
 
 # Purpose
 
@@ -9,7 +6,7 @@ The purpose of discusso is to provide a platform for people to rate and dicuss u
 
 Bruce really likes dogs, but hates cats. He decides to use discusso to voice this opinion, and gets 10 blesses and 5 curses in the first hour. Another user, Sherry, decides that she doesn't agree with Bruce, as she prefers cats more than dogs. She curses him which raises Bruce's posts curses to 6. Furthermore Sherry decides to voice her opinion on why cats are better than dogs. She responds to Bruces post with a reply in the comment section. Sherrys post gets 5 blesses and 3 curses. As Sherry has stated that this reply is in disagreement with the post, this causes the posts blesses value to increase by the amount of curses Sherrys reply has, and curses to increase by the amount of blesses Sherrys post has. If Sherrys post had of been in agreement with Bruces, the blesses of the post would increase by the amount of blesses this reply has, and the curses would increase by the amount of curses the reply has. 
 
-The overall votes of a post determines how the post was viewed by the community. A post with high blesses and low curses, is a post that is generally agreed with by the community. A vote with the opposite, would be generally disagreed with by the community. A controversial post, would be a post whether the difference in the blesses and curses is small, with respect to have many people have voted on it.
+The overall votes of a post determines how the post was viewed by the community. A post with high blesses and low curses, is a post that is generally agreed with by the community. A vote with the opposite, would be generally disagreed with by the community. A controversial post, would be a post whether the difference in the blesses and curses is small, with respect to have many people have voted on it. Each user can also be voted on by other users, as a reflection as how they are viewed by their community.
 
 # Architecture
 
@@ -43,7 +40,31 @@ You now have all the required packages ready. To run discusso, use the following
 
 You can now access discusso with a web browser at the address localhost:5000
 
+To use an administrative account, a prebuilt account with the username: admin, and the password: admin, has been created. Alternatively, you can create or use any account (all sample accounts have their password the same as their username) and change the account privledges through the backend through flask shell:
 
-#Unit Testing
+Run:
+`flask shell`
+
+Find the users userid, easiest way is through the all query:
+`User.query.all()`
+
+Use the userid the find the specific user instance, and change its admin field to true:
+`User.query.get(<userid>).admin = True`
+
+Commit the changes to the database:
+`db.session.commit()`
+
+You have now created a administrative user.
+
+
+# Unit Testing
 
 We were not able to encorporate any unit testing into discusso. Although throughout every commit we have been testing each aspect of the project; adding users, deleting users, creating posts, deleting posts e.t.c., we could not configure a testing environment in flask to automate this process. 
+
+# References:
+Praying hand image: http://clipart-library.com/clipart/516920.htm
+pentagram image: http://clipart-library.com/clipart/527990.htm
+jQuery validation guide: http://form.guide/jquery/validation-using-jquery-examples.html
+Flask-Mega Tutorial: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+
+Most information was sourced from lecture slides and tutorials.
